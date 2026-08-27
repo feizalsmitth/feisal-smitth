@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feisal Onyango — Frontend Developer</title>
+<meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0d12; --bg-raised:#0f141a; --bg-hover:#131920;
+    --ink:#aab4c0; --ink-bright:#e4ebf2; --ink-dim:#5c6773;
+    --line:#1b232c; --line-strong:#2a3541;
+    --amber:#e3af4f; --amber-dim:#7a5f30; --amber-wash:rgba(227,175,79,.08);
+    --max:1240px; --side-w:400px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink-bright);margin:0;letter-spacing:-.01em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  ::selection{background:var(--amber-dim);color:var(--ink-bright)}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  .layout{display:grid;grid-template-columns:var(--side-w) 1fr;max-width:var(--max);margin:0 auto}
+  .side{position:sticky;top:0;height:100vh;padding:64px 48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--line)}
+  .side h1{font-size:2rem;font-weight:600}
+  .side .role{margin-top:8px;font-size:1.05rem;color:var(--amber);font-weight:500}
+  .side .blurb{margin-top:18px;font-size:.95rem;color:var(--ink-dim);max-width:32ch}
+
+  .term{margin-top:34px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .term .bar{display:flex;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
+  .term .bar span{width:9px;height:9px;border-radius:50%;background:var(--line-strong)}
+  .term .body{padding:16px 18px;font-size:.8rem;min-height:74px}
+  .term .prompt{color:var(--amber)}
+  .term .cursor{display:inline-block;width:7px;height:14px;background:var(--amber);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  nav.side-nav{margin-top:44px}
+  nav.side-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+  nav.side-nav a{display:flex;align-items:center;gap:14px;padding:9px 0;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);transition:color .2s ease}
+  nav.side-nav a .n{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink-dim);transition:color .2s ease}
+  nav.side-nav a .bar{width:26px;height:1px;background:var(--line-strong);transition:width .25s ease,background .25s ease}
+  nav.side-nav a:hover,nav.side-nav a:focus-visible,nav.side-nav a.active{color:var(--ink-bright)}
+  nav.side-nav a:hover .bar,nav.side-nav a:focus-visible .bar,nav.side-nav a.active .bar{width:44px;background:var(--amber)}
+  nav.side-nav a.active .n{color:var(--amber)}
+
+  .socials{display:flex;gap:20px}
+  .socials a{color:var(--ink-dim);transition:color .2s ease}
+  .socials a:hover,.socials a:focus-visible{color:var(--amber)}
+  .socials svg{width:20px;height:20px;display:block}
+
+  main{padding:64px 56px 40px}
+  section{max-width:640px;padding-bottom:96px;scroll-margin-top:40px}
+  .section-head{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+  .section-head .n{font-mono;font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:.85rem}
+  .section-head h2{font-size:1.5rem}
+  .section-head .rule{flex:1;height:1px;background:var(--line)}
+
+  #about p{margin:0 0 16px}
+  #about p:last-child{margin-bottom:0}
+  #about strong{color:var(--ink-bright);font-weight:600}
+
+  .services{display:flex;flex-direction:column}
+  .service{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+  .services .service:last-child{border-bottom:1px solid var(--line)}
+  .service .idx{font-family:'JetBrains Mono',monospace;color:var(--ink-dim);font-size:.85rem;padding-top:2px}
+  .service h3{font-size:1.08rem;margin-bottom:6px}
+  .service p{margin:0;font-size:.92rem;color:var(--ink-dim)}
+
+  .projects{display:flex;flex-direction:column;gap:2px}
+  .project{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 24px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease,transform .2s ease}
+  .project + .project{margin-top:16px}
+  .project:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+  .project .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .project .top svg{width:26px;height:26px;color:var(--amber);flex-shrink:0}
+  .project .year{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-dim)}
+  .project h3{font-size:1.15rem;margin-top:12px}
+  .project p{margin:6px 0 0;font-size:.92rem;color:var(--ink-dim)}
+  .project .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .project .tags span{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--ink-dim);border:1px solid var(--line-strong);padding:3px 9px;border-radius:20px}
+
+  .steps{counter-reset:step;display:flex;flex-direction:column}
+  .step{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:16px 0}
+  .step .num{font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:.85rem}
+  .step h4{font-size:.98rem;margin-bottom:3px}
+  .step p{margin:0;font-size:.88rem;color:var(--ink-dim)}
+
+  .quotes{display:flex;flex-direction:column;gap:26px}
+  .quote{border-left:2px solid var(--amber-dim);padding-left:20px}
+  .quote p{margin:0 0 10px;font-size:1.02rem;color:var(--ink-bright);font-weight:400}
+  .quote cite{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--ink-dim)}
+
+  #contact h2{font-size:1.9rem;margin-bottom:14px}
+  #contact p{color:var(--ink-dim);max-width:46ch;margin:0 0 28px}
+  .cta{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid var(--amber-dim);border-radius:8px;color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.88rem;transition:background .2s ease,color .2s ease}
+  .cta:hover,.cta:focus-visible{background:var(--amber);color:#14100a}
+
+  footer{padding:32px 56px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer .mono{font-size:.72rem;color:var(--ink-dim)}
+  footer a{border-bottom:1px solid var(--line-strong)}
+  footer a:hover{border-color:var(--amber)}
+
+  .mobile-top{display:none}
+
+  @media(max-width:980px){
+    .layout{display:block}
+    .side{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:40px 24px}
+    .term{max-width:420px}
+    nav.side-nav ul{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
+    nav.side-nav a .bar{display:none}
+    main{padding:48px 24px}
+    footer{padding:24px}
+  }
+  @media(max-width:520px){
+    .side{padding:32px 20px}
+    .side h1{font-size:1.6rem}
+    main{padding:40px 20px}
+    .service{grid-template-columns:36px 1fr}
+  }
+</style>
+</head>
+<body id="top">
+
+<div class="layout">
+  <aside class="side">
+    <div>
+      <h1>Feisal Onyango</h1>
+      <div class="role">Frontend Developer</div>
+      <p class="blurb">Building fast, accessible interfaces for studios and small businesses — based in Nairobi, Kenya.</p>
+
+      <div class="term" aria-hidden="true">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <div class="body mono">
+          <div><span class="prompt">feisal@nairobi</span>:~$ whoami</div>
+          <div id="typed"></div>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="Section navigation">
+        <ul>
+          <li><a href="#about"><span class="bar"></span><span class="n">01</span> About</a></li>
+          <li><a href="#services"><span class="bar"></span><span class="n">02</span> Services</a></li>
+          <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
+          <li><a href="#process"><span class="bar"></span><span class="n">04</span> Process</a></li>
+          <li><a href="#contact"><span class="bar"></span><span class="n">05</span> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="socials" aria-label="Social links">
+      <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
+      <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg></a>
+      <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <div class="section-head"><span class="n mono">01</span><h2>About</h2><span class="rule"></span></div>
+      <p>I'm Feisal, a frontend-focused web developer based in Nairobi, Kenya, with two years of experience building interfaces that feel fast and behave the way people expect. Most of my work lands somewhere between a brochure site and a small business's entire front end — real users, real deadlines, feedback within a week of shipping.</p>
+      <p>I specialize in turning designs into responsive, accessible interfaces with <strong>React</strong>, <strong>JavaScript</strong>, and clean CSS — the kind of front end that still looks and works right two years after launch, on whatever device someone happens to be holding.</p>
+      <p>Currently based in Nairobi, and <strong>booking projects for October</strong>.</p>
+    </section>
+
+    <section id="services">
+      <div class="section-head"><span class="n mono">02</span><h2>Services</h2><span class="rule"></span></div>
+      <div class="services">
+        <div class="service"><span class="idx mono">Build</span><div><h3>Websites &amp; landing pages</h3><p>Marketing sites, portfolios, and product pages — built responsive from the first breakpoint, with clean, maintainable markup underneath.</p></div></div>
+        <div class="service"><span class="idx mono">Convert</span><div><h3>Design-to-code</h3><p>Turning Figma files and mockups into pixel-accurate, responsive interfaces — no gaps between what was designed and what ships.</p></div></div>
+        <div class="service"><span class="idx mono">Tune</span><div><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div></div>
+        <div class="service"><span class="idx mono">Care</span><div><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the "can you just tweak this" requests that come up after launch.</p></div></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head"><span class="n mono">03</span><h2>Selected work</h2><span class="rule"></span></div>
+      <div class="projects">
+        <article class="project"><div class="top"><span class="year mono">2025</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Harrow &amp; Finch — studio site</h3><p>A five-page marketing site for a two-person design studio, rebuilt from a static template into a fast, editable CMS-backed site.</p><div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div></article>
+        <article class="project"><div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Loomstack — inventory dashboard</h3><p>Internal tool replacing a shared spreadsheet for a small e-commerce team — stock levels, reorder alerts, and a CSV export nobody has to babysit.</p><div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div></article>
+        <article class="project"><div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Ferro Coffee — online storefront</h3><p>Shopify build with a custom subscription flow for a roastery's monthly bag program, including a delivery-date picker clients actually understood.</p><div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div></article>
+        <article class="project"><div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Public Notice — nonprofit rebuild</h3><p>Accessibility-first rebuild of a nonprofit's donation site: faster pages, a screen-reader-tested checkout, and a 40% lift in completed donations.</p><div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div></article>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-head"><span class="n mono">04</span><h2>How a project comes together</h2><span class="rule"></span></div>
+      <div class="steps">
+        <div class="step"><span class="num mono">01</span><div><h4>Brief</h4><p>A call to get the goal, the constraints, and the deadline on paper.</p></div></div>
+        <div class="step"><span class="num mono">02</span><div><h4>Draft</h4><p>A structure and a rough layout, so we agree on shape before pixels.</p></div></div>
+        <div class="step"><span class="num mono">03</span><div><h4>Build</h4><p>The actual site, in weekly checkpoints you can click through.</p></div></div>
+        <div class="step"><span class="num mono">04</span><div><h4>Proof</h4><p>Cross-device testing, real content, and a round of your feedback.</p></div></div>
+        <div class="step"><span class="num mono">05</span><div><h4>Ship</h4><p>Launch, a walkthrough of the code, and a plan for what's next.</p></div></div>
+      </div>
+
+      <div class="quotes" style="margin-top:44px">
+        <div class="quote"><p>"You explained every decision in plain English, which meant I could actually make choices instead of just nodding along."</p><cite>A. Whitfield, Harrow &amp; Finch</cite></div>
+        <div class="quote"><p>"The dashboard replaced a spreadsheet three people were scared to touch. Nobody's scared of it now."</p><cite>R. Okoye, Loomstack</cite></div>
+      </div>
+    </section>
+
+    <section id="contact" style="padding-bottom:60px">
+      <div class="section-head"><span class="n mono">05</span><h2>Contact</h2><span class="rule"></span></div>
+      <h2>Got a brief, a deadline, or a rough idea?</h2>
+      <p>Currently booking projects for October. Replies within one business day.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="cta" href="mailto:feizalsmitth@icloud.com">feizalsmitth@icloud.com →</a>
+        <a class="cta" href="tel:+254702478201">+254 702 478 201 →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span class="mono">Feisal Onyango · Nairobi, Kenya</span>
+  <span class="mono"><a href="#top">Back to top</a></span>
+</footer>
+
+<script>
+  var phrases = ["Frontend Developer", "React & TypeScript", "Nairobi, Kenya", "Available October"];
+  var typedEl = document.getElementById('typed');
+  var pi = 0, ci = 0, deleting = false;
+
+  function tick(){
+    var current = phrases[pi];
+    if(!deleting){
+      ci++;
+      if(ci > current.length){ deleting = true; setTimeout(tick, 1400); return; }
+    } else {
+      ci--;
+      if(ci === 0){ deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    typedEl.innerHTML = '<span style="color:var(--ink-bright)">&gt; ' + current.slice(0, ci) + '</span><span class="cursor"></span>';
+    setTimeout(tick, deleting ? 40 : 80);
+  }
+  tick();
+
+  var links = document.querySelectorAll('.side-nav a');
+  var sections = Array.from(links).map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var activeIndex = 0;
+    sections.forEach(function(sec, i){ if(sec && sec.offsetTop <= pos) activeIndex = i; });
+    links.forEach(function(a, i){ a.classList.toggle('active', i === activeIndex); });
+  }
+  if('IntersectionObserver' in window){
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+</script>
+</body>
+</html>
