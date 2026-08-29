@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,10 +73,17 @@
   .service h3{font-size:1.08rem;margin-bottom:6px}
   .service p{margin:0;font-size:.92rem;color:var(--ink-dim)}
 
+  /* ---- Selected work: filters ---- */
+  .filter-bar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
+  .filter-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.02em;padding:7px 15px;border:1px solid var(--line-strong);border-radius:20px;color:var(--ink-dim);background:transparent;cursor:pointer;transition:color .2s ease,border-color .2s ease,background .2s ease}
+  .filter-btn:hover{color:var(--ink-bright);border-color:var(--ink-dim)}
+  .filter-btn.active{color:var(--amber);border-color:var(--amber);background:var(--amber-wash)}
+
   .projects{display:flex;flex-direction:column;gap:2px}
-  .project{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 24px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease,transform .2s ease}
+  .project{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 24px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease,transform .2s ease,opacity .25s ease,max-height .3s ease;cursor:pointer}
   .project + .project{margin-top:16px}
   .project:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+  .project.is-hidden{display:none}
   .project .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
   .project .top svg{width:26px;height:26px;color:var(--amber);flex-shrink:0}
   .project .year{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-dim)}
@@ -83,6 +91,19 @@
   .project p{margin:6px 0 0;font-size:.92rem;color:var(--ink-dim)}
   .project .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
   .project .tags span{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--ink-dim);border:1px solid var(--line-strong);padding:3px 9px;border-radius:20px}
+
+  .project .expand-hint{display:flex;align-items:center;gap:6px;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--amber-dim);transition:color .2s ease}
+  .project:hover .expand-hint{color:var(--amber)}
+  .project .expand-hint svg{width:11px;height:11px;transition:transform .3s ease}
+  .project.expanded .expand-hint svg{transform:rotate(180deg)}
+
+  .project .details{max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease,opacity .3s ease,margin-top .35s ease}
+  .project.expanded .details{max-height:260px;opacity:1;margin-top:14px}
+  .project .details-inner{padding-top:16px;border-top:1px solid var(--line)}
+  .project .details h4{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+  .project .details ul{margin:0;padding-left:18px;font-size:.86rem;color:var(--ink)}
+  .project .details li{margin-bottom:6px}
+  .project .details li:last-child{margin-bottom:0}
 
   .steps{counter-reset:step;display:flex;flex-direction:column}
   .step{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:16px 0}
@@ -94,6 +115,34 @@
   .quote{border-left:2px solid var(--amber-dim);padding-left:20px}
   .quote p{margin:0 0 10px;font-size:1.02rem;color:var(--ink-bright);font-weight:400}
   .quote cite{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--ink-dim)}
+
+  /* ---- Booking ---- */
+  .booking-intro{color:var(--ink-dim);font-size:.95rem;max-width:52ch;margin:0 0 30px}
+  .booking-form{display:grid;grid-template-columns:1fr 1fr;gap:20px;background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:30px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field.full{grid-column:1 / -1}
+  .field label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
+  .field input,.field select,.field textarea{
+    font-family:'Inter',system-ui,sans-serif;font-size:.9rem;color:var(--ink-bright);
+    background:var(--bg);border:1px solid var(--line-strong);border-radius:6px;padding:11px 13px;
+    transition:border-color .2s ease;width:100%
+  }
+  .field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink-dim)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--amber)}
+  .field textarea{resize:vertical;min-height:96px;font-family:inherit}
+  .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235c6773' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+  .booking-submit{grid-column:1 / -1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+  .booking-submit button{
+    font-family:'JetBrains Mono',monospace;font-size:.85rem;padding:13px 28px;border-radius:8px;
+    background:var(--amber);color:#14100a;border:1px solid var(--amber);cursor:pointer;transition:opacity .2s ease
+  }
+  .booking-submit button:hover{opacity:.88}
+  .booking-note{font-size:.8rem;color:var(--ink-dim)}
+  .booking-status{grid-column:1 / -1;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--amber);display:none}
+  .booking-status.show{display:block}
+  @media(max-width:640px){
+    .booking-form{grid-template-columns:1fr;padding:22px}
+  }
 
   #contact h2{font-size:1.9rem;margin-bottom:14px}
   #contact p{color:var(--ink-dim);max-width:46ch;margin:0 0 28px}
@@ -147,7 +196,8 @@
           <li><a href="#services"><span class="bar"></span><span class="n">02</span> Services</a></li>
           <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
           <li><a href="#process"><span class="bar"></span><span class="n">04</span> Process</a></li>
-          <li><a href="#contact"><span class="bar"></span><span class="n">05</span> Contact</a></li>
+          <li><a href="#booking"><span class="bar"></span><span class="n">05</span> Booking</a></li>
+          <li><a href="#contact"><span class="bar"></span><span class="n">06</span> Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -179,11 +229,83 @@
 
     <section id="work">
       <div class="section-head"><span class="n mono">03</span><h2>Selected work</h2><span class="rule"></span></div>
-      <div class="projects">
-        <article class="project"><div class="top"><span class="year mono">2025</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Harrow &amp; Finch — studio site</h3><p>A five-page marketing site for a two-person design studio, rebuilt from a static template into a fast, editable CMS-backed site.</p><div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div></article>
-        <article class="project"><div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Loomstack — inventory dashboard</h3><p>Internal tool replacing a shared spreadsheet for a small e-commerce team — stock levels, reorder alerts, and a CSV export nobody has to babysit.</p><div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div></article>
-        <article class="project"><div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Ferro Coffee — online storefront</h3><p>Shopify build with a custom subscription flow for a roastery's monthly bag program, including a delivery-date picker clients actually understood.</p><div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div></article>
-        <article class="project"><div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div><h3>Public Notice — nonprofit rebuild</h3><p>Accessibility-first rebuild of a nonprofit's donation site: faster pages, a screen-reader-tested checkout, and a 40% lift in completed donations.</p><div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div></article>
+
+      <div class="filter-bar" role="group" aria-label="Filter work by technology" id="filterBar">
+        <!-- filter buttons injected by JS -->
+      </div>
+
+      <div class="projects" id="projectsList">
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="next.js,sanity cms,vercel">
+          <div class="top"><span class="year mono">2025</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>Harrow &amp; Finch — studio site</h3>
+          <p>A five-page marketing site for a two-person design studio, rebuilt from a static template into a fast, editable CMS-backed site.</p>
+          <div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Migrated a static template to Next.js with Sanity as a headless CMS, so the studio can edit copy and case studies themselves.</li>
+                <li>Cut page load by rebuilding image handling with next/image and lazy loading below the fold.</li>
+                <li>Deployed on Vercel with preview builds on every pull request for client review.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="react,node,postgresql">
+          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>Loomstack — inventory dashboard</h3>
+          <p>Internal tool replacing a shared spreadsheet for a small e-commerce team — stock levels, reorder alerts, and a CSV export nobody has to babysit.</p>
+          <div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Replaced a shared spreadsheet three people were editing simultaneously with a single source of truth backed by PostgreSQL.</li>
+                <li>Built low-stock alerts and a reorder threshold per SKU, cutting stockouts noticeably in the first quarter.</li>
+                <li>Added a one-click CSV export formatted to drop straight into their supplier's ordering portal.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="shopify,liquid,js">
+          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>Ferro Coffee — online storefront</h3>
+          <p>Shopify build with a custom subscription flow for a roastery's monthly bag program, including a delivery-date picker clients actually understood.</p>
+          <div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Built a custom Liquid subscription flow on top of Shopify's checkout, since the stock subscription app didn't fit the roastery's cadence.</li>
+                <li>Designed a plain-language delivery-date picker after customers kept emailing to ask when their bag would ship.</li>
+                <li>Handed off with a short Loom walkthrough so the owner could add new bag sizes without a developer.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="html/css,stripe,a11y">
+          <div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>Public Notice — nonprofit rebuild</h3>
+          <p>Accessibility-first rebuild of a nonprofit's donation site: faster pages, a screen-reader-tested checkout, and a 40% lift in completed donations.</p>
+          <div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Rebuilt the donation form from scratch after screen-reader testing showed donors were abandoning it mid-flow.</li>
+                <li>Simplified the Stripe checkout to three fields per step, which tracked with the 40% rise in completed donations.</li>
+                <li>Ran a full keyboard-navigation pass so the whole site, not just the checkout, meets WCAG AA.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -201,6 +323,61 @@
         <div class="quote"><p>"You explained every decision in plain English, which meant I could actually make choices instead of just nodding along."</p><cite>A. Whitfield, Harrow &amp; Finch</cite></div>
         <div class="quote"><p>"The dashboard replaced a spreadsheet three people were scared to touch. Nobody's scared of it now."</p><cite>R. Okoye, Loomstack</cite></div>
       </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-head"><span class="n mono">05</span><h2>Book a project</h2><span class="rule"></span></div>
+      <p class="booking-intro">Fill this in with a rough idea of scope and timeline — no payment or commitment yet. I reply within one business day to confirm a slot and next steps. Currently booking for October.</p>
+
+      <form class="booking-form" id="bookingForm">
+        <div class="field">
+          <label for="bk-name">Name</label>
+          <input type="text" id="bk-name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="bk-email">Email</label>
+          <input type="email" id="bk-email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="bk-type">Project type</label>
+          <select id="bk-type" name="type" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Website or landing page</option>
+            <option>Design-to-code</option>
+            <option>Performance &amp; polish</option>
+            <option>Ongoing frontend work</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bk-budget">Budget range</label>
+          <select id="bk-budget" name="budget" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Under $500</option>
+            <option>$500 – $1,500</option>
+            <option>$1,500 – $3,000</option>
+            <option>$3,000+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bk-date">Preferred start date</label>
+          <input type="date" id="bk-date" name="date" required>
+        </div>
+        <div class="field">
+          <label for="bk-timeline">Rough deadline (optional)</label>
+          <input type="text" id="bk-timeline" name="timeline" placeholder="e.g. live by end of November">
+        </div>
+        <div class="field full">
+          <label for="bk-details">Project details</label>
+          <textarea id="bk-details" name="details" required placeholder="What are you building, and what does done look like?"></textarea>
+        </div>
+        <div class="booking-submit">
+          <button type="submit">Send booking request →</button>
+          <span class="booking-note">Opens your email client with the details filled in — nothing is sent automatically.</span>
+        </div>
+        <div class="booking-status" id="bookingStatus" role="status"></div>
+      </form>
     </section>
 
     <section id="contact" style="padding-bottom:60px">
@@ -251,6 +428,103 @@
     window.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
   }
+
+  /* ---- Selected work: expand/collapse ---- */
+  var projectCards = Array.from(document.querySelectorAll('.project'));
+
+  function toggleProject(card){
+    var isOpen = card.classList.contains('expanded');
+    card.classList.toggle('expanded', !isOpen);
+    card.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  projectCards.forEach(function(card){
+    card.addEventListener('click', function(){ toggleProject(card); });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggleProject(card);
+      }
+    });
+  });
+
+  /* ---- Selected work: tag filtering ---- */
+  var filterBar = document.getElementById('filterBar');
+  var allTags = new Set();
+  projectCards.forEach(function(card){
+    card.dataset.tags.split(',').forEach(function(t){ allTags.add(t.trim()); });
+  });
+
+  function makeFilterBtn(label, value, active){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'filter-btn' + (active ? ' active' : '');
+    btn.textContent = label;
+    btn.dataset.filter = value;
+    return btn;
+  }
+
+  filterBar.appendChild(makeFilterBtn('All', 'all', true));
+  Array.from(allTags).sort().forEach(function(tag){
+    filterBar.appendChild(makeFilterBtn(tag, tag, false));
+  });
+
+  filterBar.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+
+    Array.from(filterBar.children).forEach(function(b){ b.classList.toggle('active', b === btn); });
+
+    var filter = btn.dataset.filter;
+    projectCards.forEach(function(card){
+      var tags = card.dataset.tags.split(',').map(function(t){ return t.trim(); });
+      var show = filter === 'all' || tags.indexOf(filter) !== -1;
+      card.classList.toggle('is-hidden', !show);
+      if(!show && card.classList.contains('expanded')){
+        card.classList.remove('expanded');
+        card.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  /* ---- Booking form ---- */
+  var bookingForm = document.getElementById('bookingForm');
+  var bookingStatus = document.getElementById('bookingStatus');
+
+  bookingForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var name = document.getElementById('bk-name').value.trim();
+    var email = document.getElementById('bk-email').value.trim();
+    var type = document.getElementById('bk-type').value;
+    var budget = document.getElementById('bk-budget').value;
+    var date = document.getElementById('bk-date').value;
+    var timeline = document.getElementById('bk-timeline').value.trim();
+    var details = document.getElementById('bk-details').value.trim();
+
+    var subject = 'Project inquiry: ' + type + ' — ' + name;
+    var bodyLines = [
+      'Name: ' + name,
+      'Email: ' + email,
+      'Project type: ' + type,
+      'Budget range: ' + budget,
+      'Preferred start date: ' + date,
+      'Rough deadline: ' + (timeline || '—'),
+      '',
+      'Project details:',
+      details
+    ];
+    var body = bodyLines.join('\n');
+
+    var mailtoLink = 'mailto:feizalsmitth@icloud.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    bookingStatus.textContent = 'Opening your email client to send this request…';
+    bookingStatus.classList.add('show');
+
+    window.location.href = mailtoLink;
+  });
 </script>
 </body>
 </html>
