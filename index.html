@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feisal Onyango — Frontend Developer</title>
-<meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses.">
+<meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses — and available for on-site barista service at events and pop-ups.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -179,8 +178,8 @@
   <aside class="side">
     <div>
       <h1>Feisal Onyango</h1>
-      <div class="role">Frontend Developer</div>
-      <p class="blurb">Building fast, accessible interfaces for studios and small businesses — based in Nairobi, Kenya.</p>
+      <div class="role">Frontend Developer &amp; Barista</div>
+      <p class="blurb">Building fast, accessible interfaces for studios and small businesses — and pulling shots on-site for events. Based in Nairobi, Kenya.</p>
 
       <div class="term" aria-hidden="true">
         <div class="bar"><span></span><span></span><span></span></div>
@@ -224,6 +223,7 @@
         <div class="service"><span class="idx mono">Convert</span><div><h3>Design-to-code</h3><p>Turning Figma files and mockups into pixel-accurate, responsive interfaces — no gaps between what was designed and what ships.</p></div></div>
         <div class="service"><span class="idx mono">Tune</span><div><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div></div>
         <div class="service"><span class="idx mono">Care</span><div><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the "can you just tweak this" requests that come up after launch.</p></div></div>
+        <div class="service"><span class="idx mono">Brew</span><div><h3>On-site barista service</h3><p>Espresso and filter coffee service for product launches, pop-ups, and small gatherings in Nairobi — booked the same way as a project, below.</p></div></div>
       </div>
     </section>
 
@@ -327,7 +327,7 @@
 
     <section id="booking">
       <div class="section-head"><span class="n mono">05</span><h2>Book a project</h2><span class="rule"></span></div>
-      <p class="booking-intro">Fill this in with a rough idea of scope and timeline — no payment or commitment yet. I reply within one business day to confirm a slot and next steps. Currently booking for October.</p>
+      <p class="booking-intro">Fill this in with a rough idea of scope and timeline — for a web project or an on-site barista booking. No payment or commitment yet. I reply within one business day to confirm a slot and next steps. Currently booking for October.</p>
 
       <form class="booking-form" id="bookingForm">
         <div class="field">
@@ -339,13 +339,14 @@
           <input type="email" id="bk-email" name="email" required autocomplete="email">
         </div>
         <div class="field">
-          <label for="bk-type">Project type</label>
+          <label for="bk-type">What do you need</label>
           <select id="bk-type" name="type" required>
             <option value="" disabled selected>Select one</option>
             <option>Website or landing page</option>
             <option>Design-to-code</option>
             <option>Performance &amp; polish</option>
             <option>Ongoing frontend work</option>
+            <option>On-site barista service</option>
             <option>Something else</option>
           </select>
         </div>
@@ -361,7 +362,7 @@
           </select>
         </div>
         <div class="field">
-          <label for="bk-date">Preferred start date</label>
+          <label for="bk-date">Preferred start date / event date</label>
           <input type="date" id="bk-date" name="date" required>
         </div>
         <div class="field">
@@ -369,8 +370,8 @@
           <input type="text" id="bk-timeline" name="timeline" placeholder="e.g. live by end of November">
         </div>
         <div class="field full">
-          <label for="bk-details">Project details</label>
-          <textarea id="bk-details" name="details" required placeholder="What are you building, and what does done look like?"></textarea>
+          <label for="bk-details">Details</label>
+          <textarea id="bk-details" name="details" required placeholder="Web project: what are you building, and what does done look like? Barista booking: event type, headcount, and location."></textarea>
         </div>
         <div class="booking-submit">
           <button type="submit">Send booking request →</button>
@@ -398,7 +399,7 @@
 </footer>
 
 <script>
-  var phrases = ["Frontend Developer", "React & TypeScript", "Nairobi, Kenya", "Available October"];
+  var phrases = ["Frontend Developer", "React & TypeScript", "Also a Barista", "Nairobi, Kenya", "Available October"];
   var typedEl = document.getElementById('typed');
   var pi = 0, ci = 0, deleting = false;
 
@@ -502,13 +503,13 @@
     var timeline = document.getElementById('bk-timeline').value.trim();
     var details = document.getElementById('bk-details').value.trim();
 
-    var subject = 'Project inquiry: ' + type + ' — ' + name;
+    var subject = 'Booking inquiry: ' + type + ' — ' + name;
     var bodyLines = [
       'Name: ' + name,
       'Email: ' + email,
-      'Project type: ' + type,
+      'Inquiry type: ' + type,
       'Budget range: ' + budget,
-      'Preferred start date: ' + date,
+      'Preferred start / event date: ' + date,
       'Rough deadline: ' + (timeline || '—'),
       '',
       'Project details:',
