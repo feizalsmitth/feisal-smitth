@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feisal Onyango — Frontend Developer</title>
 <meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses — and available for on-site barista service at events and pop-ups.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<meta property="og:title" content="Feisal Onyango — Frontend Developer">
+<meta property="og:description" content="Frontend developer in Nairobi, Kenya building fast, accessible websites and interfaces">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://feizalsmitth.github.io/feisal-smitth/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@feizalsmitth">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,6 +22,12 @@
     --line:#1b232c; --line-strong:#2a3541;
     --amber:#e3af4f; --amber-dim:#7a5f30; --amber-wash:rgba(227,175,79,.08);
     --max:1240px; --side-w:400px;
+  }
+  :root.light-mode {
+    --bg:#f8f9fa; --bg-raised:#ffffff; --bg-hover:#e8e8e8;
+    --ink:#1a1a1a; --ink-bright:#000000; --ink-dim:#666666;
+    --line:#e0e0e0; --line-strong:#cccccc;
+    --amber:#c08400; --amber-dim:#8a6d3b; --amber-wash:rgba(192,132,0,.1);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -72,6 +85,10 @@
   .service h3{font-size:1.08rem;margin-bottom:6px}
   .service p{margin:0;font-size:.92rem;color:var(--ink-dim)}
 
+  .skills-grid{display:flex;flex-direction:column;gap:28px}
+  .skill-category h3{font-size:1.08rem;margin-bottom:12px}
+  .skill-category .tags{display:flex;flex-wrap:wrap;gap:8px}
+
   /* ---- Selected work: filters ---- */
   .filter-bar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
   .filter-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.02em;padding:7px 15px;border:1px solid var(--line-strong);border-radius:20px;color:var(--ink-dim);background:transparent;cursor:pointer;transition:color .2s ease,border-color .2s ease,background .2s ease}
@@ -103,6 +120,13 @@
   .project .details ul{margin:0;padding-left:18px;font-size:.86rem;color:var(--ink)}
   .project .details li{margin-bottom:6px}
   .project .details li:last-child{margin-bottom:0}
+
+  .timeline{display:flex;flex-direction:column;gap:24px}
+  .timeline-item{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+  .timeline-item:last-child{border-bottom:1px solid var(--line)}
+  .timeline-date{font-size:.85rem;color:var(--ink-dim)}
+  .timeline-content h3{font-size:1.08rem;margin-bottom:8px}
+  .timeline-content p{margin:0;font-size:.92rem;color:var(--ink)}
 
   .steps{counter-reset:step;display:flex;flex-direction:column}
   .step{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:16px 0}
@@ -193,10 +217,12 @@
         <ul>
           <li><a href="#about"><span class="bar"></span><span class="n">01</span> About</a></li>
           <li><a href="#services"><span class="bar"></span><span class="n">02</span> Services</a></li>
+          <li><a href="#skills"><span class="bar"></span><span class="n">02.5</span> Skills</a></li>
           <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
-          <li><a href="#process"><span class="bar"></span><span class="n">04</span> Process</a></li>
-          <li><a href="#booking"><span class="bar"></span><span class="n">05</span> Booking</a></li>
-          <li><a href="#contact"><span class="bar"></span><span class="n">06</span> Contact</a></li>
+          <li><a href="#experience"><span class="bar"></span><span class="n">03.5</span> Experience</a></li>
+          <li><a href="#process"><span class="bar"></span><span class="n">05</span> Process</a></li>
+          <li><a href="#booking"><span class="bar"></span><span class="n">06</span> Booking</a></li>
+          <li><a href="#contact"><span class="bar"></span><span class="n">07</span> Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -204,7 +230,13 @@
     <div class="socials" aria-label="Social links">
       <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
       <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg></a>
+      <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
       <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
+      <button id="themeToggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;padding:8px;margin-left:10px;">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+        </svg>
+      </button>
     </div>
   </aside>
 
@@ -224,6 +256,28 @@
         <div class="service"><span class="idx mono">Tune</span><div><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div></div>
         <div class="service"><span class="idx mono">Care</span><div><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the "can you just tweak this" requests that come up after launch.</p></div></div>
         <div class="service"><span class="idx mono">Brew</span><div><h3>On-site barista service</h3><p>Espresso and filter coffee service for product launches, pop-ups, and small gatherings in Nairobi — booked the same way as a project, below.</p></div></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head"><span class="n mono">02.5</span><h2>Skills</h2><span class="rule"></span></div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="tags"><span>JavaScript (ES6+)</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>SQL</span></div>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks & Libraries</h3>
+          <div class="tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Redux</span><span>Tailwind CSS</span></div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="tags"><span>Git</span><span>GitHub</span><span>Vercel</span><span>Netlify</span><span>PostgreSQL</span><span>Figma</span><span>Shopify</span></div>
+        </div>
+        <div class="skill-category">
+          <h3>Other</h3>
+          <div class="tags"><span>Accessibility (a11y)</span><span>Performance</span><span>SEO</span><span>Responsive Design</span></div>
+        </div>
       </div>
     </section>
 
@@ -306,11 +360,76 @@
             </div>
           </div>
         </article>
+
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="react,api,weather">
+          <div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>Nairobi Weather App</h3>
+          <p>A React app fetching real-time weather data for Nairobi using the OpenWeather API. Built with clean state management and deployed on Netlify.</p>
+          <div class="tags"><span>React</span><span>API</span><span>Weather</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Built with React Hooks and Context API for state management.</li>
+                <li>Fetches and displays 5-day forecast with error handling and loading states.</li>
+                <li>Deployed on Netlify with CI/CD pipeline for automatic updates.</li>
+              </ul>
+              <h4>Links</h4>
+              <ul>
+                <li><a href="https://nairobi-weather.netlify.app" target="_blank" rel="noopener" style="color:var(--amber)">Live Demo </a></li>
+                <li><a href="https://github.com/feizalsmitth/nairobi-weather" target="_blank" rel="noopener" style="color:var(--amber)">GitHub Repo </a></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="next.js,shopify,headless">
+          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
+          <h3>KaaSoko Marketplace</h3>
+          <p>Headless Shopify storefront for a local artisan marketplace. Custom Next.js frontend with Shopify Storefront API for product management.</p>
+          <div class="tags"><span>Next.js</span><span>Shopify</span><span>Headless</span></div>
+          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="details">
+            <div class="details-inner">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Built a custom storefront using Shopify's Storefront API for complete design freedom.</li>
+                <li>Implemented advanced filtering and search for 500+ artisan products.</li>
+                <li>Optimized for mobile-first experience with 95+ Lighthouse performance scores.</li>
+              </ul>
+              <h4>Links</h4>
+              <ul>
+                <li><a href="https://kaasoko.vercel.app" target="_blank" rel="noopener" style="color:var(--amber)">Live Site </a></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head"><span class="n mono">03.5</span><h2>Experience</h2><span class="rule"></span></div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date mono">2023–Present</div>
+          <div class="timeline-content">
+            <h3>Freelance Frontend Developer</h3>
+            <p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date mono">2022–2023</div>
+          <div class="timeline-content">
+            <h3>Junior Developer @ Local Studio</h3>
+            <p>Worked on React-based web applications and collaborated with designers on UI/UX implementations. Gained experience with Shopify Liquid and performance optimization.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="process">
-      <div class="section-head"><span class="n mono">04</span><h2>How a project comes together</h2><span class="rule"></span></div>
+      <div class="section-head"><span class="n mono">05</span><h2>How a project comes together</h2><span class="rule"></span></div>
       <div class="steps">
         <div class="step"><span class="num mono">01</span><div><h4>Brief</h4><p>A call to get the goal, the constraints, and the deadline on paper.</p></div></div>
         <div class="step"><span class="num mono">02</span><div><h4>Draft</h4><p>A structure and a rough layout, so we agree on shape before pixels.</p></div></div>
@@ -326,7 +445,7 @@
     </section>
 
     <section id="booking">
-      <div class="section-head"><span class="n mono">05</span><h2>Book a project</h2><span class="rule"></span></div>
+      <div class="section-head"><span class="n mono">06</span><h2>Book a project</h2><span class="rule"></span></div>
       <p class="booking-intro">Fill this in with a rough idea of scope and timeline — for a web project or an on-site barista booking. No payment or commitment yet. I reply within one business day to confirm a slot and next steps. Currently booking for October.</p>
 
       <form class="booking-form" id="bookingForm">
@@ -382,7 +501,7 @@
     </section>
 
     <section id="contact" style="padding-bottom:60px">
-      <div class="section-head"><span class="n mono">05</span><h2>Contact</h2><span class="rule"></span></div>
+      <div class="section-head"><span class="n mono">07</span><h2>Contact</h2><span class="rule"></span></div>
       <h2>Got a brief, a deadline, or a rough idea?</h2>
       <p>Currently booking projects for October. Replies within one business day.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
@@ -487,6 +606,27 @@
       }
     });
   });
+
+  /* ---- Theme Toggle ---- */
+  var themeToggle = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  var isDark = true;
+
+  themeToggle.addEventListener('click', function() {
+    isDark = !isDark;
+    document.documentElement.classList.toggle('light-mode', !isDark);
+    themeIcon.innerHTML = isDark
+      ? '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'
+      : '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Load saved theme
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+    isDark = false;
+    themeIcon.innerHTML = '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
+  }
 
   /* ---- Booking form ---- */
   var bookingForm = document.getElementById('bookingForm');
