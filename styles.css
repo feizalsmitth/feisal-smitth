@@ -129,205 +129,31 @@ section{max-width:640px;padding-bottom:96px;scroll-margin-top:40px}
 .quote cite{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--ink-dim)}
 
 /* ---- Booking ---- */
-#booking {
-  position: relative;
+.booking-intro{color:var(--ink-dim);font-size:.95rem;max-width:52ch;margin:0 0 30px}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:20px;background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:30px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1 / -1}
+.field label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
+.field input,.field select,.field textarea{
+  font-family:'Inter',system-ui,sans-serif;font-size:.9rem;color:var(--ink-bright);
+  background:var(--bg);border:1px solid var(--line-strong);border-radius:6px;padding:11px 13px;
+  transition:border-color .2s ease;width:100%
 }
-
-#booking::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  z-index: -1;
-  opacity: 0.5;
-  filter: blur(20px);
-  -webkit-filter: blur(20px);
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink-dim)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--amber)}
+.field textarea{resize:vertical;min-height:96px;font-family:inherit}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235c6773' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+.booking-submit{grid-column:1 / -1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+.booking-submit button{
+  font-family:'JetBrains Mono',monospace;font-size:.85rem;padding:13px 28px;border-radius:8px;
+  background:var(--amber);color:#14100a;border:1px solid var(--amber);cursor:pointer;transition:opacity .2s ease
 }
-
-.booking-intro {
-  color: var(--ink-dim);
-  font-size: .95rem;
-  max-width: 52ch;
-  margin: 0 0 30px;
-  position: relative;
-  z-index: 1;
-}
-
-.booking-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  background: rgba(15, 20, 26, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(227, 175, 79, 0.2);
-  transition: all 0.3s ease;
-}
-
-.booking-form:hover {
-  box-shadow: 0 12px 40px rgba(227, 175, 79, 0.15);
-  border-color: rgba(227, 175, 79, 0.4);
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: relative;
-  z-index: 1;
-}
-
-.field.full {
-  grid-column: 1 / -1;
-}
-
-.field label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .7rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-}
-
-.field input,
-.field select,
-.field textarea {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: .9rem;
-  color: var(--ink-bright);
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 12px 14px;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.field input:hover,
-.field select:hover,
-.field textarea:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: var(--amber);
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 2px rgba(227, 175, 79, 0.2);
-}
-
-.field textarea {
-  resize: vertical;
-  min-height: 96px;
-  font-family: inherit;
-}
-
-.field select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aab4c0' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-}
-
-.booking-submit {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-  position: relative;
-  z-index: 1;
-}
-
-.booking-submit button {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .85rem;
-  padding: 14px 30px;
-  border-radius: 8px;
-  background: var(--amber);
-  color: #14100a;
-  border: 1px solid var(--amber);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(227, 175, 79, 0.3);
-}
-
-.booking-submit button:hover {
-  opacity: 0.95;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(227, 175, 79, 0.4);
-}
-
-.booking-note {
-  font-size: .8rem;
-  color: var(--ink-dim);
-}
-
-.booking-status {
-  grid-column: 1 / -1;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .78rem;
-  color: var(--amber);
-  display: none;
-}
-
-.booking-status.show {
-  display: block;
-}
-
-@media (max-width: 640px) {
-  .booking-form {
-    grid-template-columns: 1fr;
-    padding: 24px;
-  }
-}
-
-/* Light mode adjustments for liquid glass */
-:root.light-mode .booking-form {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-:root.light-mode .booking-form:hover {
-  box-shadow: 0 12px 40px rgba(192, 132, 0, 0.15);
-  border-color: rgba(192, 132, 0, 0.4);
-}
-
-:root.light-mode .field input,
-:root.light-mode .field select,
-:root.light-mode .field textarea {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--ink);
-}
-
-:root.light-mode .field input:hover,
-:root.light-mode .field select:hover,
-:root.light-mode .field textarea:hover {
-  border-color: rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.6);
-}
-
-:root.light-mode .field input:focus,
-:root.light-mode .field select:focus,
-:root.light-mode .field textarea:focus {
-  border-color: var(--amber);
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 0 2px rgba(192, 132, 0, 0.2);
+.booking-submit button:hover{opacity:.88}
+.booking-note{font-size:.8rem;color:var(--ink-dim)}
+.booking-status{grid-column:1 / -1;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--amber);display:none}
+.booking-status.show{display:block}
+@media(max-width:640px){
+  .booking-form{grid-template-columns:1fr;padding:22px}
 }
 
 #contact h2{font-size:1.9rem;margin-bottom:14px}
