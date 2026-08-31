@@ -41,6 +41,7 @@
           <li><a href="#skills"><span class="bar"></span><span class="n">02.5</span> Skills</a></li>
           <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
           <li><a href="#experience"><span class="bar"></span><span class="n">03.5</span> Experience</a></li>
+          <li><a href="#jarvis"><span class="bar"></span><span class="n">04</span> JARVIS</a></li>
           <li><a href="#process"><span class="bar"></span><span class="n">05</span> Process</a></li>
           <li><a href="#booking"><span class="bar"></span><span class="n">06</span> Booking</a></li>
           <li><a href="#contact"><span class="bar"></span><span class="n">07</span> Contact</a></li>
@@ -250,6 +251,166 @@
       </div>
     </section>
 
+    <!-- JARVIS Section -->
+    <section id="jarvis">
+      <div class="section-head"><span class="n mono">04</span><h2>JARVIS</h2><span class="rule"></span></div>
+      <div class="jarvis-container">
+        <!-- Introduction -->
+        <div class="jarvis-intro">
+          <h2><span class="jarvis-icon">🤖</span> J.A.R.V.I.S.</h2>
+          <p>
+            <strong>J</strong>ust <strong>A</strong>nother <strong>R</strong>adically <strong>V</strong>isionary <strong>I</strong>ntelligent <strong>S</strong>ystem
+          </p>
+          <p>
+            Your AI assistant, powered by Feizal Onyango. I'm here to help you navigate this portfolio, 
+            answer questions about Feizal's work, and <strong>search the web for real-time information</strong>.
+          </p>
+          <p style="margin-top: 12px; font-size: 0.9rem;">
+            🔍 <strong>Now with Google Search!</strong> Ask me anything, and I'll find answers online.
+          </p>
+
+          <div class="jarvis-features">
+            <div class="jarvis-feature">
+              <span class="jarvis-feature-icon">💡</span>
+              <div class="jarvis-feature-content">
+                <h4>Project Insights</h4>
+                <p>Get details about Feizal's projects, technologies, and experience.</p>
+              </div>
+            </div>
+            <div class="jarvis-feature">
+              <span class="jarvis-feature-icon">🔍</span>
+              <div class="jarvis-feature-content">
+                <h4>Google Search</h4>
+                <p>I can search the web for up-to-date information.</p>
+              </div>
+            </div>
+            <div class="jarvis-feature">
+              <span class="jarvis-feature-icon">🗣️</span>
+              <div class="jarvis-feature-content">
+                <h4>Voice Interaction</h4>
+                <p>Listen to responses with natural voice synthesis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="jarvis-chat-container">
+          <div class="jarvis-chat">
+            <div class="jarvis-chat-header">
+              <div class="jarvis-chat-header-left">
+                <div class="avatar">🤖</div>
+                <div class="status">
+                  <h3>JARVIS</h3>
+                  <p>Online</p>
+                </div>
+              </div>
+              <div class="chat-controls">
+                <button class="control-btn" id="apiSettingsBtn" title="API Settings">
+                  🔑
+                  <span class="tooltip">API Settings</span>
+                </button>
+                <button class="control-btn" id="voiceSettingsBtn" title="Voice Settings">
+                  ⚙️
+                  <span class="tooltip">Voice Settings</span>
+                </button>
+                <button class="control-btn" id="voiceToggleBtn" title="Toggle Voice">
+                  🔊
+                  <span class="tooltip">Toggle Voice</span>
+                </button>
+              </div>
+              <div class="status-dot"></div>
+            </div>
+
+            <div class="jarvis-chat-messages" id="jarvisMessages">
+              <div class="message jarvis">
+                <div class="message-avatar jarvis">J</div>
+                <div class="message-content">
+                  <div class="message-bubble">
+                    Hello! I'm JARVIS, Feizal Onyango's AI assistant. 
+                    How can I help you today?
+                  </div>
+                  <button class="message-voice-btn" onclick="speakMessage(this)" title="Read aloud">🔊</button>
+                  <span class="message-time">Just now</span>
+                </div>
+              </div>
+              <div class="message jarvis">
+                <div class="message-avatar jarvis">J</div>
+                <div class="message-content">
+                  <div class="message-bubble">
+                    You can ask me about:
+                    <ul style="margin: 8px 0 0; padding-left: 20px; font-size: 0.9em;">
+                      <li>Feizal's projects and technologies</li>
+                      <li>Booking a project or consultation</li>
+                      <li>General knowledge questions (I'll search Google!)</li>
+                    </ul>
+                    <p style="margin-top: 8px;">💡 <em>Tip: Click the 🔊 button to hear my responses!</em></p>
+                  </div>
+                  <button class="message-voice-btn" onclick="speakMessage(this)" title="Read aloud">🔊</button>
+                  <span class="message-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="jarvis-suggestions" id="jarvisSuggestions">
+              <button onclick="sendSuggestion('Tell me about Feizal')">Tell me about Feizal</button>
+              <button onclick="sendSuggestion('What is the latest in frontend development?')">What's new in frontend?</button>
+              <button onclick="sendSuggestion('How can I book a project?')">How can I book a project?</button>
+              <button onclick="sendSuggestion('Search Google for React best practices')">Search: React best practices</button>
+            </div>
+
+            <div class="jarvis-chat-input">
+              <input 
+                type="text" 
+                id="jarvisInput" 
+                placeholder="Ask JARVIS anything... (Try: 'What is Next.js?')" 
+                autocomplete="off"
+                onkeydown="handleJarvisKeyDown(event)"
+              >
+              <button onclick="sendJarvisMessage()" id="jarvisSendBtn">Send</button>
+            </div>
+          </div>
+
+          <!-- Capabilities -->
+          <div class="jarvis-capabilities">
+            <h3>🛠️ What I Can Do</h3>
+            <div class="capabilities-grid">
+              <div class="capability">
+                <span class="capability-icon">📊</span>
+                <span>Project Analysis</span>
+              </div>
+              <div class="capability">
+                <span class="capability-icon">🔍</span>
+                <span>Google Search</span>
+              </div>
+              <div class="capability">
+                <span class="capability-icon">💬</span>
+                <span>Answer Questions</span>
+              </div>
+              <div class="capability">
+                <span class="capability-icon">📅</span>
+                <span>Schedule Help</span>
+              </div>
+              <div class="capability">
+                <span class="capability-icon">🗣️</span>
+                <span>Voice Responses</span>
+              </div>
+              <div class="capability">
+                <span class="capability-icon">📧</span>
+                <span>Draft Messages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="process">
       <div class="section-head"><span class="n mono">05</span><h2>How a project comes together</h2><span class="rule"></span></div>
       <div class="steps">
@@ -332,6 +493,60 @@
       </div>
     </section>
   </main>
+</div>
+
+<!-- JARVIS Modals -->
+<div class="api-modal" id="apiModal">
+  <div class="api-modal-content">
+    <h3>🔑 Google Search API Settings</h3>
+    <p>
+      To enable Google Search, you need to provide a <strong>Custom Search JSON API key</strong> and <strong>Search Engine ID</strong>.
+    </p>
+    <p>
+      Here's how to get them:
+    </p>
+    <ol>
+      <li>Go to the <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></li>
+      <li>Create a new project or select an existing one</li>
+      <li>Enable the <strong>Custom Search JSON API</strong></li>
+      <li>Create an API key under <strong>Credentials</strong></li>
+      <li>Create a <strong>Custom Search Engine</strong> at <a href="https://programmablesearchengine.google.com/" target="_blank">Programmable Search Engine</a></li>
+      <li>Copy your <strong>Search Engine ID</strong> (looks like <code>xxxxxxxxxxxxxxxxx</code>)</li>
+    </ol>
+    
+    <div class="api-status" id="apiStatus">
+      ⚠️ Google Search is not configured
+    </div>
+
+    <div class="api-field">
+      <label for="apiKey">API Key</label>
+      <input type="text" id="apiKey" placeholder="Your Google API Key">
+    </div>
+    
+    <div class="api-field">
+      <label for="searchEngineId">Search Engine ID</label>
+      <input type="text" id="searchEngineId" placeholder="Your Search Engine ID">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeApiModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveApiSettings()">Save & Test</button>
+    </div>
+  </div>
+</div>
+
+<div class="voice-modal" id="voiceModal">
+  <div class="voice-modal-content">
+    <h3>🎙️ Voice Settings</h3>
+    <p>Select a voice for JARVIS to use when speaking.</p>
+    <div class="voice-options" id="voiceOptions">
+      <!-- Voices will be populated by JavaScript -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeVoiceModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveVoiceSettings()">Save</button>
+    </div>
+  </div>
 </div>
 
 <footer>
