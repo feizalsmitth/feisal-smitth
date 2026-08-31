@@ -1,4 +1,4 @@
-:root{
+root{
   --bg:#0a0d12; --bg-raised:#0f141a; --bg-hover:#131920;
   --ink:#aab4c0; --ink-bright:#e4ebf2; --ink-dim:#5c6773;
   --line:#1b232c; --line-strong:#2a3541;
@@ -191,3 +191,171 @@ footer a:hover{border-color:var(--amber)}
 .timeline-date{font-size:.85rem;color:var(--ink-dim)}
 .timeline-content h3{font-size:1.08rem;margin-bottom:8px}
 .timeline-content p{margin:0;font-size:.92rem;color:var(--ink)}
+
+/* =====================
+   Kenyan Testimonials
+   ===================== */
+#kenyan-testimonials .section-description {
+  font-size: .95rem;
+  color: var(--ink-dim);
+  max-width: 60ch;
+  margin-bottom: 32px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.testimonial-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.testimonial-author h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.testimonial-author p {
+  font-size: .85rem;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+.testimonial-text {
+  font-size: .95rem;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.testimonial-rating {
+  color: var(--amber);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+/* =====================
+   AI Agents Section
+   ===================== */
+#ai-agents .section-description {
+  font-size: .95rem;
+  color: var(--ink-dim);
+  max-width: 60ch;
+  margin-bottom: 32px;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.agent-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.agent-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.agent-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.agent-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.agent-card p {
+  font-size: .9rem;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.agent-card p:last-child {
+  margin-bottom: 0;
+}
+
+.agent-card strong {
+  color: var(--ink-bright);
+}
+
+.ceo-highlight {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.ceo-highlight h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.ceo-highlight p {
+  font-size: .95rem;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.ceo-highlight ul {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.ceo-highlight li {
+  margin-bottom: 8px;
+}
+
+.ceo-highlight em {
+  font-style: italic;
+  color: var(--ink-dim);
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+}
