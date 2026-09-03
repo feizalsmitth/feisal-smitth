@@ -90,23 +90,23 @@ filterBar.addEventListener('click', function(e){
 /* ---- Theme Toggle ---- */
 var themeToggle = document.getElementById('themeToggle');
 var themeIcon = document.getElementById('themeIcon');
-var isDark = true;
+
+var SUN_PATH = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
+var MOON_PATH = '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
+
+// isDark reflects whatever the page already rendered as (see the
+// inline head script that should run before first paint — see note below).
+// This just syncs the icon and internal state to match on load, with no
+// class-flipping here, so there's no flash of the wrong theme.
+var isDark = !document.documentElement.classList.contains('light-mode');
+themeIcon.innerHTML = isDark ? SUN_PATH : MOON_PATH;
 
 themeToggle.addEventListener('click', function() {
   isDark = !isDark;
   document.documentElement.classList.toggle('light-mode', !isDark);
-  themeIcon.innerHTML = isDark
-    ? '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'
-    : '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
+  themeIcon.innerHTML = isDark ? SUN_PATH : MOON_PATH;
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
-
-// Load saved theme
-if (localStorage.getItem('theme') === 'light') {
-  document.documentElement.classList.add('light-mode');
-  isDark = false;
-  themeIcon.innerHTML = '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
-}
 
 /* ---- Booking form ---- */
 var bookingForm = document.getElementById('bookingForm');
