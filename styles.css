@@ -36,6 +36,12 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink-bright);margi
 .term .cursor{display:inline-block;width:7px;height:14px;background:var(--amber);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 
+/* ---- Terminal Input ---- */
+#terminal-input-container{display:flex;align-items:center;gap:8px;margin-top:8px}
+#terminal-input{background:transparent;border:none;color:var(--ink-bright);font-family:'JetBrains Mono',monospace;font-size:.8rem;width:100%;outline:none}
+#terminal-input:focus{outline:none}
+#terminal-output{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--ink);white-space:pre-wrap}
+
 nav.side-nav{margin-top:44px}
 nav.side-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
 nav.side-nav a{display:flex;align-items:center;gap:14px;padding:9px 0;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);transition:color .2s ease}
@@ -211,3 +217,15 @@ footer a:hover{border-color:var(--amber)}
   .side-nav a{padding:8px 0}
   .side-nav a .bar{display:block}
 }
+
+/* ---- Blog Section ---- */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:24px}
+.blog-post{background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:24px;transition:border-color .2s ease,transform .2s ease}
+.blog-post:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.blog-meta{display:flex;gap:12px;margin-bottom:12px;font-size:.75rem;color:var(--ink-dim)}
+.blog-date{font-family:'JetBrains Mono',monospace}
+.blog-tag{font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:.7rem}
+.blog-post h3{font-size:1.1rem;margin-bottom:8px;color:var(--ink-bright)}
+.blog-post p{margin:0 0 16px;font-size:.9rem;color:var(--ink);line-height:1.6}
+.blog-read-more{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.8rem;text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:2px;display:inline-block;transition:color .2s ease,border-color .2s ease}
+.blog-read-more:hover{color:var(--amber-bright);border-color:var(--amber-bright)}
