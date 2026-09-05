@@ -92,10 +92,11 @@ section{max-width:640px;padding-bottom:96px;scroll-margin-top:40px}
 .filter-btn.active{color:var(--amber);border-color:var(--amber);background:var(--amber-wash)}
 
 .projects{display:flex;flex-direction:column;gap:2px}
-.project{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 24px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease,transform .2s ease,opacity .25s ease,max-height .3s ease;cursor:pointer}
+.project{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 24px;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease,transform .2s ease,opacity .25s ease,max-height .3s ease;cursor:pointer;opacity:0;transform:translateY(20px)}
 .project + .project{margin-top:16px}
 .project:hover{border-color:var(--line-strong);transform:translateY(-2px)}
 .project.is-hidden{display:none}
+.project.visible{opacity:1;transform:translateY(0)}
 .project .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
 .project .top svg{width:26px;height:26px;color:var(--amber);flex-shrink:0}
 .project .year{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-dim)}
@@ -191,3 +192,22 @@ footer a:hover{border-color:var(--amber)}
 .timeline-date{font-size:.85rem;color:var(--ink-dim)}
 .timeline-content h3{font-size:1.08rem;margin-bottom:8px}
 .timeline-content p{margin:0;font-size:.92rem;color:var(--ink)}
+
+/* ---- Terms and Privacy Pages ---- */
+.terms-section{margin-bottom:32px}
+.terms-section h2{font-size:1.3rem;margin-bottom:12px;color:var(--ink-bright)}
+.terms-section p{margin:0 0 16px;color:var(--ink);line-height:1.7}
+.terms-section ul{margin:0 0 16px;padding-left:20px;color:var(--ink)}
+.terms-section li{margin-bottom:8px}
+
+/* ---- Mobile Menu ---- */
+.mobile-menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:10px}
+.mobile-menu-toggle svg{width:24px;height:24px;fill:var(--ink)}
+
+@media(max-width:980px){
+  .mobile-menu-toggle{display:block}
+  .side-nav ul{display:none;flex-direction:column;gap:4px;position:absolute;top:100%;left:0;background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:16px;z-index:100;min-width:200px}
+  .side-nav ul.active{display:flex}
+  .side-nav a{padding:8px 0}
+  .side-nav a .bar{display:block}
+}
