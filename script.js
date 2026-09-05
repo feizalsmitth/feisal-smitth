@@ -25,7 +25,68 @@ function tick() {
   typedEl.innerHTML = `<span style="color:var(--ink-bright)">&gt; ${current.slice(0, charIndex)}</span><span class="cursor"></span>`;
   setTimeout(tick, deleting ? 40 : 80);
 }
-tick();
+
+// Check if interactive terminal exists
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+
+if (terminalInput && terminalOutput) {
+  // Replace the static terminal with interactive functionality
+  const terminalPrompt = document.querySelector('.term .body div:first-child');
+  if (terminalPrompt) {
+    terminalPrompt.innerHTML = '<span class="prompt" style="color:var(--amber)">feisal@nairobi</span>:~$';
+  }
+
+  // Handle terminal input
+  terminalInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const command = terminalInput.value.trim().toLowerCase();
+      terminalInput.value = '';
+      
+      // Display the command in the terminal
+      const commandEl = document.createElement('div');
+      commandEl.innerHTML = `<span style="color:var(--ink-bright)">&gt; ${command}</span>`;
+      terminalOutput.appendChild(commandEl);
+      
+      // Process the command and display a response
+      const response = processCommand(command);
+      const responseEl = document.createElement('div');
+      responseEl.innerHTML = `<span style="color:var(--ink)">${response}</span>`;
+      terminalOutput.appendChild(responseEl);
+      
+      // Scroll to the bottom of the terminal
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+  });
+
+  // Process terminal commands
+  function processCommand(command) {
+    const commands = {
+      'help': 'Available commands: help, about, projects, skills, experience, contact, clear',
+      'about': 'I am Feisal Onyango, a frontend developer, barista, and coffee roaster based in Nairobi, Kenya. I build fast, accessible interfaces and pull great shots of coffee.',
+      'projects': 'Check out my work in the "Selected work" section. I have built projects using Next.js, React, Node.js, and more.',
+      'skills': 'My skills include JavaScript, React, Next.js, Node.js, and coffee roasting. See the "Skills" section for more details.',
+      'experience': 'I have worked as a Freelance Frontend Developer, Junior Developer at Local Studio, and Junior Coffee Roaster at Kenyan Barisa.',
+      'contact': 'You can reach me via email at feizalsmitth@icloud.com or phone at +254 702 478 201.',
+      'clear': ''
+    };
+    
+    if (command in commands) {
+      if (command === 'clear') {
+        terminalOutput.innerHTML = '';
+        return '';
+      }
+      return commands[command];
+    } else if (command) {
+      return `Command not found: ${command}. Type 'help' for available commands.`;
+    }
+    return '';
+  }
+} else {
+  // Fallback to the original typed animation if interactive terminal doesn't exist
+  tick();
+}
 
 /* ---- Side-nav scroll spy ---- */
 const links = [...document.querySelectorAll('.side-nav a')];
@@ -132,7 +193,7 @@ themeToggle.addEventListener('click', () => {
 const bookingForm = document.getElementById('bookingForm');
 const bookingStatus = document.getElementById('bookingStatus');
 
-bookingForm.addEventListener('submit', e => {
+bookingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = document.getElementById('bk-name').value.trim();
@@ -156,12 +217,37 @@ bookingForm.addEventListener('submit', e => {
     details
   ].join('\n');
 
-  const mailtoLink = `mailto:feizalsmitth@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  bookingStatus.textContent = 'Opening your email client to send this request...';
-  bookingStatus.classList.add('show');
-
-  window.location.href = mailtoLink;
+  // Check if the form has an action attribute (Formspree or other endpoint)
+  if (bookingForm.action) {
+    // Submit the form directly to Formspree or other endpoint
+    bookingStatus.textContent = 'Sending your request...';
+    bookingStatus.classList.add('show');
+    
+    try {
+      const response = await fetch(bookingForm.action, {
+        method: 'POST',
+        body: new FormData(bookingForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        bookingStatus.textContent = 'Request sent successfully! I will get back to you soon.';
+        bookingForm.reset();
+      } else {
+        bookingStatus.textContent = 'There was an issue sending your request. Please try again or email me directly.';
+      }
+    } catch (error) {
+      bookingStatus.textContent = 'There was an issue sending your request. Please try again or email me directly.';
+    }
+  } else {
+    // Fallback to mailto if no action is set
+    const mailtoLink = `mailto:feizalsmitth@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    bookingStatus.textContent = 'Opening your email client to send this request...';
+    bookingStatus.classList.add('show');
+    window.location.href = mailtoLink;
+  }
 });
 
 /* ---- Project Card Animations ---- */
