@@ -163,3 +163,59 @@ bookingForm.addEventListener('submit', e => {
 
   window.location.href = mailtoLink;
 });
+
+/* ---- Project Card Animations ---- */
+const projectObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      projectObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+projectCards.forEach(card => {
+  projectObserver.observe(card);
+});
+
+/* ---- Mobile Menu Toggle ---- */
+const mobileMenuToggle = document.createElement('button');
+mobileMenuToggle.className = 'mobile-menu-toggle';
+mobileMenuToggle.innerHTML = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M3 12h18M3 6h18M3 18h18"/>
+  </svg>
+`;
+mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+const sideNav = document.querySelector('.side-nav');
+const socialsDiv = document.querySelector('.socials');
+if (socialsDiv) {
+  socialsDiv.prepend(mobileMenuToggle);
+}
+
+mobileMenuToggle.addEventListener('click', () => {
+  const navUl = document.querySelector('.side-nav ul');
+  navUl.classList.toggle('active');
+});
+
+/* ---- Close Mobile Menu on Link Click ---- */
+document.querySelectorAll('.side-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    const navUl = document.querySelector('.side-nav ul');
+    if (window.innerWidth <= 980) {
+      navUl.classList.remove('active');
+    }
+  });
+});
+
+/* ---- Close Mobile Menu on Outside Click ---- */
+document.addEventListener('click', (e) => {
+  const navUl = document.querySelector('.side-nav ul');
+  if (window.innerWidth <= 980 && !e.target.closest('.side-nav') && !e.target.closest('.mobile-menu-toggle')) {
+    navUl.classList.remove('active');
+  }
+});
