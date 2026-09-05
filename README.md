@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/31547467/README.md)
 # Feisal Onyango — Portfolio Site
 
 A single-file, static HTML portfolio/landing page for Feisal Onyango, a frontend developer based in Nairobi, Kenya. No build step, no dependencies to install — just open the file in a browser.
@@ -20,36 +19,43 @@ The page uses a two-column layout: a sticky left sidebar and a scrollable right 
 - In-page nav links (with scroll-spy highlighting of the active section)
 - Social links (GitHub, LinkedIn, email)
 
-**Main content** (5 numbered sections)
+**Main content** (8 numbered sections)
 1. **About** — short bio and current availability note
-2. **Services** — 4 service offerings (Build, Convert, Tune, Care)
-3. **Selected work** — 4 project cards (studio site, dashboard, storefront, nonprofit rebuild), each with year, description, and tech tags
-4. **Process** — a 5-step engagement process (Brief → Draft → Build → Proof → Ship), plus 2 client testimonial quotes
-5. **Contact** — email and phone call-to-action buttons
+2. **Services** — 5 service offerings (Build, Convert, Tune, Care, Brew)
+3. **Skills** — categorized skills (Languages, Frameworks & Libraries, Tools & Platforms, Other)
+4. **Selected work** — 6 project cards (studio site, dashboard, storefront, nonprofit rebuild, weather app, marketplace), each with year, description, and tech tags
+5. **Experience** — timeline of professional experience
+6. **Process** — a 5-step engagement process (Brief → Draft → Build → Proof → Ship), plus 2 client testimonial quotes
+7. **Booking** — form to book projects or barista services
+8. **Contact** — email and phone call-to-action buttons
 
 **Footer** — name/location and a "back to top" link.
 
 ## Functionality (JavaScript)
 
-Two small vanilla-JS behaviors, no external libraries:
+Four vanilla-JS behaviors, no external libraries:
 
 1. **Typewriter effect** — types and deletes each phrase in the terminal widget on a loop.
 2. **Scroll-spy navigation** — listens for scroll events and highlights the sidebar nav link corresponding to the section currently in view.
+3. **Project filtering** — dynamically filters projects by technology tags.
+4. **Theme toggle** — switches between dark and light modes, with preference saved in localStorage.
 
 ## Customizing
 
 All content lives directly in the HTML — to update it, edit the markup in the relevant `<section>`:
 
-| To change... | Edit... |
-|---|---|
-| Name, role, bio | `<aside class="side">` and `#about` |
-| Terminal phrases | the `phrases` array near the bottom `<script>` |
-| Services | `.service` blocks in `#services` |
-| Projects | `.project` blocks in `#work` |
-| Process steps / testimonials | `.step` and `.quote` blocks in `#process` |
-| Contact info | `#contact` and the `mailto:` / `tel:` links |
-| Colors / theme | CSS custom properties at the top of `<style>` (`:root { --bg, --ink, --amber, ... }`) |
-| Social links | `.socials` block in the sidebar |
+| To change...                 | Edit...                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| Name, role, bio              | `<aside class="side">` and `#about`                                                   |
+| Terminal phrases             | the `phrases` array in `script.js`                                                    |
+| Services                     | `.service` blocks in `#services`                                                      |
+| Skills                       | `.skill-category` blocks in `#skills`                                                 |
+| Projects                     | `.project` blocks in `#work`                                                          |
+| Experience                   | `.timeline-item` blocks in `#experience`                                             |
+| Process steps / testimonials | `.step` and `.quote` blocks in `#process`                                             |
+| Contact info                 | `#contact` and the `mailto:` / `tel:` links                                           |
+| Colors / theme               | CSS custom properties at the top of `styles.css` (`:root { --bg, --ink, --amber, ... }`) |
+| Social links                 | `.socials` block in the sidebar                                                       |
 
 ## Accessibility & performance notes
 
@@ -61,3 +67,9 @@ All content lives directly in the HTML — to update it, edit the markup in the 
 ## Running it
 
 No server or build step required — just open the HTML file directly in a browser, or serve the folder with any static file server (e.g. `python3 -m http.server`) if you prefer.
+
+## About
+
+Frontend developer portfolio for Feisal Onyango — responsive, single-page site showcasing projects and skills.
+
+https://feizalsmitth.github.io/feisal-smitth/
