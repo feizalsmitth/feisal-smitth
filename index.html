@@ -25,11 +25,15 @@
 </head>
 <body id="top">
 
+<div id="loadingSpinner" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);display:flex;justify-content:center;align-items:center;z-index:9999;">
+  <div style="width:40px;height:40px;border:4px solid var(--amber);border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite;"></div>
+</div>
+
 <div class="layout">
   <aside class="side">
     <div>
       <h1>Feisal Onyango</h1>
-      <div class="role">Frontend Developer, Barista &amp; Coffee Roaster</div>
+      <div class="role">Frontend Developer, Barista & Coffee Roaster</div>
       <p class="blurb">Building fast, accessible interfaces for studios and small businesses — and pulling shots on-site for events. Former Junior Coffee Roaster at Kenyan Barisa. Based in Nairobi, Kenya.</p>
 
       <div class="term" aria-hidden="true">
@@ -66,7 +70,8 @@
       <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
       <button id="themeToggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;padding:8px;margin-left:10px;">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" id="sunPath" />
+          <path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z" id="moonPath" style="display:none;" />
         </svg>
       </button>
     </div>
@@ -96,11 +101,57 @@
       <div class="skills-grid">
         <div class="skill-category">
           <h3>Languages</h3>
-          <div class="tags"><span>JavaScript (ES6+)</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>SQL</span></div>
+          <div class="skill-item">
+            <span>JavaScript (ES6+)</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:90%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>TypeScript</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:85%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>HTML5</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:95%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>CSS3</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:90%;"></div>
+            </div>
+          </div>
         </div>
         <div class="skill-category">
           <h3>Frameworks & Libraries</h3>
-          <div class="tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Redux</span><span>Tailwind CSS</span></div>
+          <div class="skill-item">
+            <span>React</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:90%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>Next.js</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:85%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>Node.js</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:80%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span>Tailwind CSS</span>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:85%;"></div>
+            </div>
+          </div>
         </div>
         <div class="skill-category">
           <h3>Tools & Platforms</h3>
@@ -378,13 +429,31 @@
       <div class="section-head"><span class="n mono">07</span><h2>Contact</h2><span class="rule"></span></div>
       <h2>Got a brief, a deadline, or a rough idea?</h2>
       <p>Currently booking projects for October. Replies within one business day.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
         <a class="cta" href="mailto:feizalsmitth@icloud.com">feizalsmitth@icloud.com →</a>
+        <button id="copyEmail" style="background:none;border:1px solid var(--amber-dim);color:var(--amber);padding:8px 12px;border-radius:6px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.8rem;">
+          Copy Email
+        </button>
+        <span id="copyStatus" style="color:var(--amber);font-size:.8rem;display:none;">Copied!</span>
         <a class="cta" href="tel:+254702478201">+254 702 478 201 →</a>
       </div>
     </section>
   </main>
 </div>
+
+<nav id="floatingNav" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg-raised);border-top:1px solid var(--line);padding:12px;z-index:1000;">
+  <div style="display:flex;justify-content:space-around;max-width:var(--max);margin:0 auto;">
+    <a href="#about" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">About</a>
+    <a href="#work" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">Work</a>
+    <a href="#contact" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">Contact</a>
+  </div>
+</nav>
+
+<button id="backToTop" aria-label="Back to top" style="display:none;position:fixed;bottom:20px;right:20px;background:var(--amber);color:var(--bg);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;z-index:1000;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;">
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+</button>
 
 <footer>
   <span class="mono">Feisal Onyango · Nairobi, Kenya</span>
