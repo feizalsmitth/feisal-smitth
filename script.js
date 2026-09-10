@@ -1,92 +1,59 @@
-const phrases = ['Frontend Developer', 'React & TypeScript', 'Also a Barista', 'Nairobi, Kenya', 'Available October'];
-const typedEl = document.getElementById('typed');
-let phraseIndex = 0;
-let charIndex = 0;
-let deleting = false;
+// Interactive Terminal Commands
+const commands = {
+  'help': 'Available commands: <span style="color:var(--amber)">help, about, projects, skills, experience, contact, clear, echo [text], secret, coffee, barista</span>',
+  'about': 'I am <strong>Feisal Onyango</strong>, a frontend developer, barista, and coffee roaster based in Nairobi, Kenya. I build fast, accessible interfaces and pull great shots of coffee.',
+  'projects': 'Check out my work in the "<a href="#work" style="color:var(--amber)">Selected work</a>" section. I have built projects using Next.js, React, Node.js, and more.',
+  'skills': 'My skills include JavaScript, React, Next.js, Node.js, and coffee roasting. See the "<a href="#skills" style="color:var(--amber)">Skills</a>" section for more details.',
+  'experience': 'I have worked as a Freelance Frontend Developer, Junior Developer at Local Studio, and Junior Coffee Roaster at Kenyan Barisa.',
+  'contact': 'You can reach me via email at <a href="mailto:feizalsmitth@icloud.com" style="color:var(--amber)">feizalsmitth@icloud.com</a> or phone at <a href="tel:+254702478201" style="color:var(--amber)">+254 702 478 201</a>.',
+  'clear': () => {
+    terminalOutput.innerHTML = '';
+    return '';
+  },
+  'echo': (args) => args.join(' '),
+  'secret': '🤫 You found a hidden command! Try "<span style="color:var(--amber)">coffee</span>" or "<span style="color:var(--amber)">barista</span>".',
+  'coffee': '☕ My favorite! I roast my own beans and love experimenting with brew methods. Try my <a href="#booking" style="color:var(--amber)">on-site barista service</a>!',
+  'barista': '🔥 I offer on-site barista services for events in Nairobi. Book me for your next pop-up or product launch!'
+};
 
-function tick() {
-  const current = phrases[phraseIndex];
-
-  if (!deleting) {
-    charIndex++;
-    if (charIndex > current.length) {
-      deleting = true;
-      setTimeout(tick, 1400);
-      return;
-    }
-  } else {
-    charIndex--;
-    if (charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-    }
-  }
-
-  typedEl.innerHTML = `<span style="color:var(--ink-bright)">&gt; ${current.slice(0, charIndex)}</span><span class="cursor"></span>`;
-  setTimeout(tick, deleting ? 40 : 80);
-}
-
-// Check if interactive terminal exists
+// Terminal Elements
 const terminalInput = document.getElementById('terminal-input');
 const terminalOutput = document.getElementById('terminal-output');
 
-if (terminalInput && terminalOutput) {
-  // Replace the static terminal with interactive functionality
-  const terminalPrompt = document.querySelector('.term .body div:first-child');
-  if (terminalPrompt) {
-    terminalPrompt.innerHTML = '<span class="prompt" style="color:var(--amber)">feisal@nairobi</span>:~$';
-  }
+// Handle terminal input
+terminalInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const command = terminalInput.value.trim();
+    terminalInput.value = '';
 
-  // Handle terminal input
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      const command = terminalInput.value.trim().toLowerCase();
-      terminalInput.value = '';
-      
-      // Display the command in the terminal
-      const commandEl = document.createElement('div');
-      commandEl.innerHTML = `<span style="color:var(--ink-bright)">&gt; ${command}</span>`;
-      terminalOutput.appendChild(commandEl);
-      
-      // Process the command and display a response
-      const response = processCommand(command);
-      const responseEl = document.createElement('div');
-      responseEl.innerHTML = `<span style="color:var(--ink)">${response}</span>`;
-      terminalOutput.appendChild(responseEl);
-      
-      // Scroll to the bottom of the terminal
-      terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    }
-  });
+    // Display the command in the terminal
+    const commandEl = document.createElement('div');
+    commandEl.innerHTML = `<span style="color:var(--ink-bright)">&gt; ${command}</span>`;
+    terminalOutput.appendChild(commandEl);
 
-  // Process terminal commands
-  function processCommand(command) {
-    const commands = {
-      'help': 'Available commands: help, about, projects, skills, experience, contact, clear',
-      'about': 'I am Feisal Onyango, a frontend developer, barista, and coffee roaster based in Nairobi, Kenya. I build fast, accessible interfaces and pull great shots of coffee.',
-      'projects': 'Check out my work in the "Selected work" section. I have built projects using Next.js, React, Node.js, and more.',
-      'skills': 'My skills include JavaScript, React, Next.js, Node.js, and coffee roasting. See the "Skills" section for more details.',
-      'experience': 'I have worked as a Freelance Frontend Developer, Junior Developer at Local Studio, and Junior Coffee Roaster at Kenyan Barisa.',
-      'contact': 'You can reach me via email at feizalsmitth@icloud.com or phone at +254 702 478 201.',
-      'clear': ''
-    };
-    
-    if (command in commands) {
-      if (command === 'clear') {
-        terminalOutput.innerHTML = '';
-        return '';
-      }
-      return commands[command];
-    } else if (command) {
-      return `Command not found: ${command}. Type 'help' for available commands.`;
+    // Process the command
+    const [cmd, ...args] = command.split(' ');
+    let response = 'Command not found. Type <span style="color:var(--amber)">help</span> for available commands.';
+
+    if (cmd in commands) {
+      response = typeof commands[cmd] === 'function' ? commands[cmd](args) : commands[cmd];
     }
-    return '';
+
+    // Display the response
+    const responseEl = document.createElement('div');
+    responseEl.innerHTML = response;
+    terminalOutput.appendChild(responseEl);
+
+    // Scroll to the bottom
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
   }
-} else {
-  // Fallback to the original typed animation if interactive terminal doesn't exist
-  tick();
-}
+});
+
+// Auto-focus the terminal on page load
+window.addEventListener('load', () => {
+  terminalInput.focus();
+});
 
 /* ---- Side-nav scroll spy ---- */
 const links = [...document.querySelectorAll('.side-nav a')];
@@ -174,18 +141,19 @@ filterBar.addEventListener('click', e => {
 /* ---- Theme toggle ---- */
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
-
-const SUN_PATH = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
-const MOON_PATH = '<path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z"/>';
+const sunPath = document.getElementById('sunPath');
+const moonPath = document.getElementById('moonPath');
 
 // Sync theme icon with current theme
 let isDark = !document.documentElement.classList.contains('light-mode');
-themeIcon.innerHTML = isDark ? SUN_PATH : MOON_PATH;
+sunPath.style.display = isDark ? 'block' : 'none';
+moonPath.style.display = isDark ? 'none' : 'block';
 
 themeToggle.addEventListener('click', () => {
   isDark = !isDark;
   document.documentElement.classList.toggle('light-mode', !isDark);
-  themeIcon.innerHTML = isDark ? SUN_PATH : MOON_PATH;
+  sunPath.style.display = isDark ? 'block' : 'none';
+  moonPath.style.display = isDark ? 'none' : 'block';
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
@@ -304,4 +272,57 @@ document.addEventListener('click', (e) => {
   if (window.innerWidth <= 980 && !e.target.closest('.side-nav') && !e.target.closest('.mobile-menu-toggle')) {
     navUl.classList.remove('active');
   }
+});
+
+/* ---- Floating Navigation ---- */
+const floatingNav = document.getElementById('floatingNav');
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth <= 980 && window.pageYOffset > 100) {
+    floatingNav.style.display = 'block';
+  } else {
+    floatingNav.style.display = 'none';
+  }
+});
+
+/* ---- Back to Top Button ---- */
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopButton.style.display = 'block';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+/* ---- Copy Email Button ---- */
+const copyEmailButton = document.getElementById('copyEmail');
+const copyStatus = document.getElementById('copyStatus');
+
+copyEmailButton.addEventListener('click', () => {
+  navigator.clipboard.writeText('feizalsmitth@icloud.com').then(() => {
+    copyStatus.style.display = 'inline';
+    setTimeout(() => {
+      copyStatus.style.display = 'none';
+    }, 2000);
+  });
+});
+
+/* ---- Loading Spinner ---- */
+window.addEventListener('load', () => {
+  const loadingSpinner = document.getElementById('loadingSpinner');
+  setTimeout(() => {
+    loadingSpinner.style.opacity = '0';
+    setTimeout(() => {
+      loadingSpinner.style.display = 'none';
+    }, 500);
+  }, 500);
 });
