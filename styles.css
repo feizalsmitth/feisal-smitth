@@ -368,6 +368,72 @@ footer a:hover{border-color:var(--amber)}
   border: 1px solid var(--line);
 }
 
+/* ---- Newsletter Section ---- */
+#newsletter {
+  padding: 64px 0;
+  text-align: center;
+}
+
+#newsletter h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+#newsletter p {
+  color: var(--ink-dim);
+  margin-bottom: 24px;
+}
+
+#newsletter form {
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+#newsletter input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink-bright);
+}
+
+/* ---- Social Proof Bar ---- */
+#socialProof {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-raised);
+  border-top: 1px solid var(--line);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1000;
+}
+
+#socialProof a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+#socialProof a:hover {
+  color: var(--amber);
+}
+
+#socialProof svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* ---- Loading Spinner ---- */
 @keyframes spin {
   to { transform: rotate(360deg); }
