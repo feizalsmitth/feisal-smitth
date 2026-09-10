@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feisal Onyango — Frontend Developer</title>
 <meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses — and available for on-site barista service at events and pop-ups.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕💻</text></svg>">
 <meta property="og:title" content="Feisal Onyango — Frontend Developer">
 <meta property="og:description" content="Frontend developer in Nairobi, Kenya building fast, accessible websites and interfaces">
 <meta property="og:type" content="website">
@@ -49,11 +49,14 @@
 
       <nav class="side-nav" aria-label="Section navigation">
         <ul>
+          <li><a href="#hero"><span class="bar"></span><span class="n">00</span> Home</a></li>
           <li><a href="#about"><span class="bar"></span><span class="n">01</span> About</a></li>
           <li><a href="#services"><span class="bar"></span><span class="n">02</span> Services</a></li>
           <li><a href="#skills"><span class="bar"></span><span class="n">02.5</span> Skills</a></li>
           <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
           <li><a href="#experience"><span class="bar"></span><span class="n">03.5</span> Experience</a></li>
+          <li><a href="#testimonials"><span class="bar"></span><span class="n">04</span> Testimonials</a></li>
+          <li><a href="#coffee"><span class="bar"></span><span class="n">04.5</span> Coffee</a></li>
           <li><a href="#process"><span class="bar"></span><span class="n">05</span> Process</a></li>
           <li><a href="#blog"><span class="bar"></span><span class="n">05.5</span> Blog</a></li>
           <li><a href="#booking"><span class="bar"></span><span class="n">06</span> Booking</a></li>
@@ -78,6 +81,15 @@
   </aside>
 
   <main>
+    <!-- Hero Section -->
+    <section id="hero" style="padding: 64px 0; text-align: center;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <img src="https://via.placeholder.com/800x500/0a0d12/e3af4f?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace Screenshot" loading="lazy" style="width: 100%; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 24px;">
+        <h1 style="font-size: 2.5rem; color: var(--ink-bright); margin-bottom: 16px;">Building fast, accessible interfaces for Nairobi and beyond</h1>
+        <a href="#work" class="cta" style="display: inline-block;">View My Work →</a>
+      </div>
+    </section>
+
     <section id="about">
       <div class="section-head"><span class="n mono">01</span><h2>About</h2><span class="rule"></span></div>
       <p>I'm Feisal, a frontend-focused web developer based in Nairobi, Kenya, with two years of experience building interfaces that feel fast and behave the way people expect. Most of my work lands somewhere between a brochure site and a small business's entire front end — real users, real deadlines, feedback within a week of shipping.</p>
@@ -101,55 +113,89 @@
       <div class="skills-grid">
         <div class="skill-category">
           <h3>Languages</h3>
-          <div class="skill-item">
-            <span>JavaScript (ES6+)</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:90%;"></div>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #f7df1e;">
+                <path d="M16 8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8z"/>
+                <path d="M12 15.5l-3.5 -3.5 1.41 -1.41L12 12.69l5.09 -5.09L15.5 10.5z"/>
+              </svg>
+              <span>JavaScript</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>TypeScript</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:85%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #3178c6;">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>TypeScript</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>HTML5</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:95%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #e34c26;">
+                <path d="M14 19l-4-4 4-4"/>
+                <path d="M10 19l4-4-4-4"/>
+                <path d="M12 11l-4 4 4 4"/>
+              </svg>
+              <span>HTML5</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>CSS3</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:90%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #264de4;">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span>CSS3</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%;"></div>
+              </div>
             </div>
           </div>
         </div>
         <div class="skill-category">
           <h3>Frameworks & Libraries</h3>
-          <div class="skill-item">
-            <span>React</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:90%;"></div>
+          <div class="skill-icons">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #61dafb;">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span>React</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>Next.js</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:85%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #000000;">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              </svg>
+              <span>Next.js</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>Node.js</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:80%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #339933;">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span>Node.js</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <span>Tailwind CSS</span>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:85%;"></div>
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #38bdf8;">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              </svg>
+              <span>Tailwind CSS</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,6 +212,21 @@
 
     <section id="work">
       <div class="section-head"><span class="n mono">03</span><h2>Selected work</h2><span class="rule"></span></div>
+
+      <!-- Featured Project -->
+      <div class="featured-project">
+        <div class="featured-project-image">
+          <img src="https://via.placeholder.com/600x400/0a0d12/e3af4f?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace" loading="lazy" style="width: 100%; border-radius: 8px;">
+        </div>
+        <div class="featured-project-content">
+          <h3>KaaSoko Marketplace</h3>
+          <p>A headless Shopify storefront for a local artisan marketplace. Built with Next.js and Shopify Storefront API, featuring advanced filtering and search for 500+ products.</p>
+          <div class="featured-project-links">
+            <a href="https://kaasoko.vercel.app" target="_blank" rel="noopener" class="cta">Live Site →</a>
+            <a href="#" class="cta" style="margin-left: 12px;">Case Study →</a>
+          </div>
+        </div>
+      </div>
 
       <div class="filter-bar" role="group" aria-label="Filter work by technology" id="filterBar">
         <!-- filter buttons injected by JS -->
@@ -266,28 +327,6 @@
             </div>
           </div>
         </article>
-
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="next.js,shopify,headless">
-          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>KaaSoko Marketplace</h3>
-          <p>Headless Shopify storefront for a local artisan marketplace. Custom Next.js frontend with Shopify Storefront API for product management.</p>
-          <div class="tags"><span>Next.js</span><span>Shopify</span><span>Headless</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Built a custom storefront using Shopify's Storefront API for complete design freedom.</li>
-                <li>Implemented advanced filtering and search for 500+ artisan products.</li>
-                <li>Optimized for mobile-first experience with 95+ Lighthouse performance scores.</li>
-              </ul>
-              <h4>Links</h4>
-              <ul>
-                <li><a href="https://kaasoko.vercel.app" target="_blank" rel="noopener" style="color:var(--amber)">Live Site →</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -314,6 +353,38 @@
             <h3>Junior Coffee Roaster @ Kenyan Barisa</h3>
             <p>Worked as a Junior Coffee Roaster, honing my craft in roasting high-quality coffee beans. Also served as a barista, preparing and serving specialty coffee beverages with precision and care.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <div class="section-head"><span class="n mono">04</span><h2>Testimonials</h2><span class="rule"></span></div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-avatar">AW</div>
+          <p>"Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding."</p>
+          <cite>A. Whitfield, Harrow & Finch</cite>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-avatar">RO</div>
+          <p>"The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly."</p>
+          <cite>R. Okoye, Loomstack</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coffee Section -->
+    <section id="coffee">
+      <div class="section-head"><span class="n mono">04.5</span><h2>Coffee Roasting & Barista Services</h2><span class="rule"></span></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div>
+          <p>Beyond coding, I’m a passionate <strong>coffee roaster</strong> and <strong>barista</strong>. I previously worked as a <strong>Junior Coffee Roaster at Kenyan Barisa</strong>, where I honed my craft in roasting high-quality beans and preparing specialty coffee.</p>
+          <p>I offer <strong>on-site barista services</strong> for events, pop-ups, and small gatherings in Nairobi. Whether it’s a product launch or a cozy get-together, I’ll pull shots that impress your guests.</p>
+          <a href="#booking" class="cta" style="margin-top: 16px;">Book Barista Service →</a>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/500x400/0a0d12/e3af4f?text=Coffee+Roasting" alt="Coffee Roasting" loading="lazy" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);">
         </div>
       </div>
     </section>
@@ -443,7 +514,7 @@
 
 <nav id="floatingNav" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg-raised);border-top:1px solid var(--line);padding:12px;z-index:1000;">
   <div style="display:flex;justify-content:space-around;max-width:var(--max);margin:0 auto;">
-    <a href="#about" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">About</a>
+    <a href="#hero" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">Home</a>
     <a href="#work" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">Work</a>
     <a href="#contact" style="color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:.8rem;">Contact</a>
   </div>
