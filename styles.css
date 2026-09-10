@@ -92,6 +92,28 @@ section{max-width:640px;padding-bottom:96px;scroll-margin-top:40px}
 .skill-category h3{font-size:1.08rem;margin-bottom:12px}
 
 /* ---- Skills Progress Bar ---- */
+.skill-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.skill-icon span {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
 .skill-item {margin-bottom:12px;}
 .progress-bar {height:6px;background:var(--line-strong);border-radius:3px;margin-top:4px;overflow:hidden;}
 .progress-fill {height:100%;background:var(--amber);border-radius:3px;transition:width 0.5s ease;}
@@ -234,6 +256,117 @@ footer a:hover{border-color:var(--amber)}
 .blog-post p{margin:0 0 16px;font-size:.9rem;color:var(--ink);line-height:1.6}
 .blog-read-more{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.8rem;text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:2px;display:inline-block;transition:color .2s ease,border-color .2s ease}
 .blog-read-more:hover{color:var(--amber-bright);border-color:var(--amber-bright)}
+
+/* ---- Hero Section ---- */
+#hero {
+  padding: 64px 0;
+  text-align: center;
+}
+
+#hero img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  color: var(--ink-bright);
+  margin-bottom: 16px;
+}
+
+/* ---- Featured Project ---- */
+.featured-project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.featured-project-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.featured-project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.featured-project-content p {
+  margin-bottom: 20px;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+.featured-project-links {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Testimonials Section ---- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--amber);
+  color: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.testimonial-card p {
+  margin: 0 0 12px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.testimonial-card cite {
+  font-style: normal;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+/* ---- Coffee Section ---- */
+#coffee img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
 
 /* ---- Loading Spinner ---- */
 @keyframes spin {
