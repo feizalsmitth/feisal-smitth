@@ -40,7 +40,8 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--ink-bright);margi
 #terminal-input-container{display:flex;align-items:center;gap:8px;margin-top:8px}
 #terminal-input{background:transparent;border:none;color:var(--ink-bright);font-family:'JetBrains Mono',monospace;font-size:.8rem;width:100%;outline:none}
 #terminal-input:focus{outline:none}
-#terminal-output{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--ink);white-space:pre-wrap}
+#terminal-output{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--ink);white-space:pre-wrap;max-height:150px;overflow-y:auto;}
+#terminal-output div {margin-bottom:4px;white-space:pre-wrap;}
 
 nav.side-nav{margin-top:44px}
 nav.side-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
@@ -89,11 +90,15 @@ section{max-width:640px;padding-bottom:96px;scroll-margin-top:40px}
 
 .skills-grid{display:flex;flex-direction:column;gap:28px}
 .skill-category h3{font-size:1.08rem;margin-bottom:12px}
-.skill-category .tags{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ---- Skills Progress Bar ---- */
+.skill-item {margin-bottom:12px;}
+.progress-bar {height:6px;background:var(--line-strong);border-radius:3px;margin-top:4px;overflow:hidden;}
+.progress-fill {height:100%;background:var(--amber);border-radius:3px;transition:width 0.5s ease;}
 
 /* ---- Selected work: filters ---- */
-.filter-bar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
-.filter-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.02em;padding:7px 15px;border:1px solid var(--line-strong);border-radius:20px;color:var(--ink-dim);background:transparent;cursor:pointer;transition:color .2s ease,border-color .2s ease,background .2s ease}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filter-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.02em;padding:6px 12px;border:1px solid var(--line-strong);border-radius:20px;color:var(--ink-dim);background:transparent;cursor:pointer;transition:all 0.2s ease}
 .filter-btn:hover{color:var(--ink-bright);border-color:var(--ink-dim)}
 .filter-btn.active{color:var(--amber);border-color:var(--amber);background:var(--amber-wash)}
 
@@ -229,3 +234,38 @@ footer a:hover{border-color:var(--amber)}
 .blog-post p{margin:0 0 16px;font-size:.9rem;color:var(--ink);line-height:1.6}
 .blog-read-more{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.8rem;text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:2px;display:inline-block;transition:color .2s ease,border-color .2s ease}
 .blog-read-more:hover{color:var(--amber-bright);border-color:var(--amber-bright)}
+
+/* ---- Loading Spinner ---- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Floating Navigation ---- */
+#floatingNav a {
+  transition: color 0.2s ease;
+}
+#floatingNav a:hover {
+  color: var(--amber);
+}
+
+/* ---- Back to Top Button ---- */
+#backToTop {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* ---- Copy Email Button ---- */
+#copyEmail {
+  transition: all 0.2s ease;
+}
+#copyEmail:hover {
+  background: var(--amber-wash);
+  border-color: var(--amber);
+}
+
+/* ---- Hover Effects for Links ---- */
+a {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+a:hover {
+  color: var(--amber);
+}
