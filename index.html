@@ -5,570 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feisal Onyango — Frontend Developer</title>
 <meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses — and available for on-site barista service at events and pop-ups.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕💻</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕U0001F4BB</text></svg>">
 <meta property="og:title" content="Feisal Onyango — Frontend Developer">
 <meta property="og:description" content="Frontend developer in Nairobi, Kenya building fast, accessible websites and interfaces">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://feizalsmitth.github.io/feisal-smitth/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@feizalsmitth">
-
-<!-- Preload critical resources -->
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>
-  (function() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.classList.toggle('light-mode', savedTheme === 'light');
-  })();
-</script>
 </head>
 <body id="top">
 
-<div id="loadingSpinner" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);display:flex;justify-content:center;align-items:center;z-index:9999;">
-  <div style="width:40px;height:40px;border:4px solid var(--amber);border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite;"></div>
-</div>
+<header class="nav">
+  <a class="logo" href="#top">Feisal<span>.</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="nav-cta">Book me →</a>
+  </nav>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
 
-<div class="layout">
-  <aside class="side">
-    <div>
-      <h1>Feisal Onyango</h1>
-      <div class="role">Frontend Developer, Barista & Coffee Roaster</div>
-      <p class="blurb">Building fast, accessible interfaces for studios and small businesses — and pulling shots on-site for events. Former Junior Coffee Roaster at Kenyan Barisa. Based in Nairobi, Kenya.</p>
-
-      <div class="term" aria-hidden="true">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <div class="body mono">
-          <div><span class="prompt">feisal@nairobi</span>:~$ </div>
-          <div id="terminal-input-container">
-            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command...">
-          </div>
-          <div id="terminal-output"></div>
-        </div>
-      </div>
-
-      <nav class="side-nav" aria-label="Section navigation">
-        <ul>
-          <li><a href="#hero"><span class="bar"></span><span class="n">00</span> Home</a></li>
-          <li><a href="#about"><span class="bar"></span><span class="n">01</span> About</a></li>
-          <li><a href="#services"><span class="bar"></span><span class="n">02</span> Services</a></li>
-          <li><a href="#skills"><span class="bar"></span><span class="n">02.5</span> Skills</a></li>
-          <li><a href="#work"><span class="bar"></span><span class="n">03</span> Work</a></li>
-          <li><a href="#experience"><span class="bar"></span><span class="n">03.5</span> Experience</a></li>
-          <li><a href="#testimonials"><span class="bar"></span><span class="n">04</span> Testimonials</a></li>
-          <li><a href="#coffee"><span class="bar"></span><span class="n">04.5</span> Coffee</a></li>
-          <li><a href="#process"><span class="bar"></span><span class="n">05</span> Process</a></li>
-          <li><a href="#blog"><span class="bar"></span><span class="n">05.5</span> Blog</a></li>
-          <li><a href="#booking"><span class="bar"></span><span class="n">06</span> Booking</a></li>
-          <li><a href="#contact"><span class="bar"></span><span class="n">07</span> Contact</a></li>
-        </ul>
-      </nav>
+<section class="hero">
+  <div class="hero-text reveal">
+    <p class="hero-kicker">Frontend developer · Nairobi, Kenya</p>
+    <h1>I’m a <span class="hl">frontend developer</span> who also pulls a <span class="hl hl-yellow">mean espresso</span>.</h1>
+    <p class="hero-sub">I build fast, accessible websites and interfaces for studios and small businesses — and I brew coffee on-site for events and pop-ups around Nairobi.</p>
+    <div class="hero-btns">
+      <a href="#work" class="btn btn-dark">See my work</a>
+      <a href="#about" class="btn btn-outline">More about me</a>
     </div>
+  </div>
+  <div class="hero-photo reveal">
+    <img src="https://via.placeholder.com/700x880/111111/FFC53D?text=Your+photo+here" alt="Portrait of Feisal Onyango" loading="eager">
+    <div class="hero-badge">☕ Yes, that’s a coffee</div>
+  </div>
+</section>
 
-    <div class="socials" aria-label="Social links">
-      <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
-      <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg></a>
-      <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink-dim);margin-left:8px;">@hsssnnnnd._</span>
-      <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
-      <button id="themeToggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;padding:8px;margin-left:10px;">
-        <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" id="sunPath" />
-          <path d="M12 18a6 6 0 0 0-9-9 9 9 0 1 0 9 9Z" id="moonPath" style="display:none;" />
-        </svg>
-      </button>
-    </div>
-  </aside>
+<section id="work" class="section">
+  <div class="section-head reveal"><h2>Some of my latest work</h2><a href="#booking" class="see-all">Start a project →</a></div>
+  <div class="work-grid">
+    <article class="work-card reveal" data-tags="next.js,sanity cms,vercel">
+      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Harrow+%26+Finch" alt="Harrow &amp; Finch studio site">
+      <h3>Harrow &amp; Finch — studio site</h3>
+      <p>A five-page marketing site for a design studio, rebuilt into a fast, editable CMS-backed site.</p>
+      <div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div>
+    </article>
+    <article class="work-card reveal" data-tags="react,node,postgresql">
+      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Loomstack" alt="Loomstack inventory dashboard">
+      <h3>Loomstack — inventory dashboard</h3>
+      <p>Internal tool replacing a shared spreadsheet — stock levels, reorder alerts, and one-click CSV export.</p>
+      <div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div>
+    </article>
+    <article class="work-card reveal" data-tags="shopify,liquid,js">
+      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Ferro+Coffee" alt="Ferro Coffee online storefront">
+      <h3>Ferro Coffee — storefront</h3>
+      <p>Shopify build with a custom subscription flow for a roastery’s monthly bag program.</p>
+      <div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div>
+    </article>
+    <article class="work-card reveal" data-tags="html/css,stripe,a11y">
+      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Public+Notice" alt="Public Notice nonprofit rebuild">
+      <h3>Public Notice — nonprofit rebuild</h3>
+      <p>Accessibility-first rebuild of a donation site — faster pages and a 40% lift in completed donations.</p>
+      <div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div>
+    </article>
+    <article class="work-card reveal featured" data-tags="next.js,shopify,react">
+      <img src="https://via.placeholder.com/1200x640/111111/FFC53D?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace">
+      <h3>KaaSoko Marketplace — featured</h3>
+      <p>A headless Shopify storefront for a local artisan marketplace, with advanced filtering and search for 500+ products.</p>
+      <div class="tags"><span>Next.js</span><span>Shopify API</span><span>React</span></div>
+      <a class="work-link" href="https://kaasoko.vercel.app" target="_blank" rel="noopener">Visit live site →</a>
+    </article>
+    <article class="work-card reveal" data-tags="react,api,weather">
+      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Nairobi+Weather" alt="Nairobi Weather App">
+      <h3>Nairobi Weather App</h3>
+      <p>React app fetching real-time weather for Nairobi with clean state management, deployed on Netlify.</p>
+      <div class="tags"><span>React</span><span>API</span><span>Netlify</span></div>
+      <a class="work-link" href="https://nairobi-weather.netlify.app" target="_blank" rel="noopener">Live demo →</a>
+    </article>
+  </div>
+</section>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" style="padding: 64px 0; text-align: center;">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <img src="https://via.placeholder.com/800x500/0a0d12/e3af4f?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace Screenshot" loading="lazy" style="width: 100%; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 24px;">
-        <h1 style="font-size: 2.5rem; color: var(--ink-bright); margin-bottom: 16px;">Building fast, accessible interfaces for Nairobi and beyond</h1>
-        <a href="#work" class="cta" style="display: inline-block;">View My Work →</a>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-head"><span class="n mono">01</span><h2>About</h2><span class="rule"></span></div>
-      <p>I'm Feisal, a frontend-focused web developer based in Nairobi, Kenya, with two years of experience building interfaces that feel fast and behave the way people expect. Most of my work lands somewhere between a brochure site and a small business's entire front end — real users, real deadlines, feedback within a week of shipping.</p>
+<section id="about" class="section section-alt">
+  <div class="two-col">
+    <div class="reveal">
+      <h2 class="big-title">I design &amp; code <span class="hl hl-yellow">clean interfaces</span></h2>
+      <p>I’m Feisal, a frontend-focused web developer based in Nairobi, Kenya, with two years of experience building interfaces that feel fast and behave the way people expect. Most of my work lands somewhere between a brochure site and a small business’s entire front end — real users, real deadlines, feedback within a week of shipping.</p>
       <p>I specialize in turning designs into responsive, accessible interfaces with <strong>React</strong>, <strong>JavaScript</strong>, and clean CSS — the kind of front end that still looks and works right two years after launch, on whatever device someone happens to be holding.</p>
-      <p>Beyond coding, I’m a passionate <strong>coffee roaster</strong> and <strong>barista</strong>. I previously worked as a <strong>Junior Coffee Roaster at Kenyan Barisa</strong>, bringing the same precision and craftsmanship to my coffee as I do to my code. Currently based in Nairobi, and <strong>booking projects for October</strong>.</p>
-    </section>
-
-    <section id="services">
-      <div class="section-head"><span class="n mono">02</span><h2>Services</h2><span class="rule"></span></div>
-      <div class="services">
-        <div class="service"><span class="idx mono">Build</span><div><h3>Websites &amp; landing pages</h3><p>Marketing sites, portfolios, and product pages — built responsive from the first breakpoint, with clean, maintainable markup underneath.</p></div></div>
-        <div class="service"><span class="idx mono">Convert</span><div><h3>Design-to-code</h3><p>Turning Figma files and mockups into pixel-accurate, responsive interfaces — no gaps between what was designed and what ships.</p></div></div>
-        <div class="service"><span class="idx mono">Tune</span><div><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div></div>
-        <div class="service"><span class="idx mono">Care</span><div><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the "can you just tweak this" requests that come up after launch.</p></div></div>
-        <div class="service"><span class="idx mono">Brew</span><div><h3>On-site barista service</h3><p>Espresso and filter coffee service for product launches, pop-ups, and small gatherings in Nairobi — booked the same way as a project, below.</p></div></div>
+      <div class="skill-chips">
+        <span>JavaScript</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Tailwind CSS</span><span>Git &amp; GitHub</span><span>Figma</span><span>Accessibility</span><span>Performance</span>
       </div>
-    </section>
+    </div>
+    <div class="about-photo reveal">
+      <img src="https://via.placeholder.com/700x800/FFC53D/111111?text=Hi%2C+I%27m+Feisal" alt="Feisal Onyango at work">
+    </div>
+  </div>
+</section>
 
-    <section id="skills">
-      <div class="section-head"><span class="n mono">02.5</span><h2>Skills</h2><span class="rule"></span></div>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Languages</h3>
-          <div class="skill-icons">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #f7df1e;">
-                <path d="M16 8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8z"/>
-                <path d="M12 15.5l-3.5 -3.5 1.41 -1.41L12 12.69l5.09 -5.09L15.5 10.5z"/>
-              </svg>
-              <span>JavaScript</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 90%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #3178c6;">
-                <path d="M20 6L9 17l-5-5"/>
-              </svg>
-              <span>TypeScript</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #e34c26;">
-                <path d="M14 19l-4-4 4-4"/>
-                <path d="M10 19l4-4-4-4"/>
-                <path d="M12 11l-4 4 4 4"/>
-              </svg>
-              <span>HTML5</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 95%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #264de4;">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              <span>CSS3</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 90%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Frameworks & Libraries</h3>
-          <div class="skill-icons">
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #61dafb;">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              <span>React</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 90%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #000000;">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              </svg>
-              <span>Next.js</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #339933;">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              <span>Node.js</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 80%;"></div>
-              </div>
-            </div>
-            <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; color: #38bdf8;">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              </svg>
-              <span>Tailwind CSS</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Tools & Platforms</h3>
-          <div class="tags"><span>Git</span><span>GitHub</span><span>Vercel</span><span>Netlify</span><span>PostgreSQL</span><span>Figma</span><span>Shopify</span></div>
-        </div>
-        <div class="skill-category">
-          <h3>Other</h3>
-          <div class="tags"><span>Accessibility (a11y)</span><span>Performance</span><span>SEO</span><span>Responsive Design</span><span>Coffee Roasting</span><span>Barista</span></div>
-        </div>
-      </div>
-    </section>
+<section id="services" class="section">
+  <div class="section-head reveal"><h2>What I can do for you</h2></div>
+  <div class="services-grid">
+    <div class="service reveal"><h3>Websites &amp; landing pages</h3><p>Marketing sites, portfolios, and product pages — built responsive from the first breakpoint, with clean, maintainable markup underneath.</p></div>
+    <div class="service reveal"><h3>Design-to-code</h3><p>Turning Figma files and mockups into pixel-accurate, responsive interfaces — no gaps between what was designed and what ships.</p></div>
+    <div class="service reveal"><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div>
+    <div class="service reveal"><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the “can you just tweak this” requests that come up after launch.</p></div>
+    <div class="service reveal service-coffee"><h3>On-site barista service</h3><p>Espresso and filter coffee service for product launches, pop-ups, and small gatherings in Nairobi — booked the same way as a project, below.</p></div>
+  </div>
+</section>
 
-    <section id="work">
-      <div class="section-head"><span class="n mono">03</span><h2>Selected work</h2><span class="rule"></span></div>
+<section id="experience" class="section section-alt">
+  <div class="reveal" style="max-width:1200px;margin-left:auto;margin-right:auto">
+  <div class="section-head"><h2>Where I’ve been</h2></div>
+  <div class="timeline">
+    <div class="timeline-item reveal"><span class="year">2023—Present</span><div><h3>Freelance Frontend Developer</h3><p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces.</p></div></div>
+    <div class="timeline-item reveal"><span class="year">2022—2023</span><div><h3>Junior Developer @ Local Studio</h3><p>Worked on React-based web applications and collaborated with designers on UI/UX implementations. Gained experience with Shopify Liquid and performance optimization.</p></div></div>
+    <div class="timeline-item reveal"><span class="year">2021—2022</span><div><h3>Junior Coffee Roaster @ Kenyan Barisa</h3><p>Honed my craft roasting high-quality beans and serving specialty coffee with precision and care.</p></div></div>
+  </div>
+  </div>
+</section>
 
-      <!-- Featured Project -->
-      <div class="featured-project">
-        <div class="featured-project-image">
-          <img src="https://via.placeholder.com/600x400/0a0d12/e3af4f?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace" loading="lazy" style="width: 100%; border-radius: 8px;">
-        </div>
-        <div class="featured-project-content">
-          <h3>KaaSoko Marketplace</h3>
-          <p>A headless Shopify storefront for a local artisan marketplace. Built with Next.js and Shopify Storefront API, featuring advanced filtering and search for 500+ products.</p>
-          <div class="featured-project-links">
-            <a href="https://kaasoko.vercel.app" target="_blank" rel="noopener" class="cta">Live Site →</a>
-            <a href="#" class="cta" style="margin-left: 12px;">Case Study →</a>
-          </div>
-        </div>
-      </div>
+<section id="coffee" class="section coffee-cta">
+  <div class="coffee-inner reveal">
+    <h2>Code by day, <span class="hl hl-yellow">coffee by craft</span></h2>
+    <p>Beyond coding, I’m a passionate coffee roaster and barista. I previously worked as a Junior Coffee Roaster at Kenyan Barisa, and now I offer on-site barista services for events, pop-ups, and small gatherings in Nairobi. Product launch or cozy get-together — I’ll pull shots that impress your guests.</p>
+    <a href="#booking" class="btn btn-yellow">Book barista service</a>
+  </div>
+</section>
 
-      <div class="filter-bar" role="group" aria-label="Filter work by technology" id="filterBar">
-        <!-- filter buttons injected by JS -->
-      </div>
+<section id="testimonials" class="section">
+  <div class="section-head reveal"><h2>Nice things clients say</h2></div>
+  <div class="quotes">
+    <div class="quote reveal"><p>“Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding.”</p><cite>A. Whitfield, Harrow &amp; Finch</cite></div>
+    <div class="quote reveal"><p>“The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly.”</p><cite>R. Okoye, Loomstack</cite></div>
+  </div>
+</section>
 
-      <div class="projects" id="projectsList">
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="next.js,sanity cms,vercel">
-          <div class="top"><span class="year mono">2025</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>Harrow &amp; Finch — studio site</h3>
-          <p>A five-page marketing site for a two-person design studio, rebuilt from a static template into a fast, editable CMS-backed site.</p>
-          <div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Migrated a static template to Next.js with Sanity as a headless CMS, so the studio can edit copy and case studies themselves.</li>
-                <li>Cut page load by rebuilding image handling with next/image and lazy loading below the fold.</li>
-                <li>Deployed on Vercel with preview builds on every pull request for client review.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+<section id="blog" class="section section-alt">
+  <div class="reveal" style="max-width:1200px;margin-left:auto;margin-right:auto">
+  <div class="section-head"><h2>From the blog</h2></div>
+  <div class="blog-grid">
+    <article class="blog-post reveal"><span class="blog-date">Sep 2026</span><h3>Getting Started with React Hooks</h3><p>A deep dive into React Hooks and how they simplify state management in functional components.</p><a href="#" class="work-link">Read more →</a></article>
+    <article class="blog-post reveal"><span class="blog-date">Aug 2026</span><h3>CSS Grid vs. Flexbox: When to Use Each</h3><p>A comparison of CSS Grid and Flexbox, with practical examples for modern layouts.</p><a href="#" class="work-link">Read more →</a></article>
+    <article class="blog-post reveal"><span class="blog-date">Jul 2026</span><h3>Automating Workflows with GitHub Actions</h3><p>How to set up GitHub Actions to automate testing, deployment, and other repetitive tasks.</p><a href="#" class="work-link">Read more →</a></article>
+  </div>
+  </div>
+</section>
 
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="react,node,postgresql">
-          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>Loomstack — inventory dashboard</h3>
-          <p>Internal tool replacing a shared spreadsheet for a small e-commerce team — stock levels, reorder alerts, and a CSV export nobody has to babysit.</p>
-          <div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Replaced a shared spreadsheet three people were editing simultaneously with a single source of truth backed by PostgreSQL.</li>
-                <li>Built low-stock alerts and a reorder threshold per SKU, cutting stockouts noticeably in the first quarter.</li>
-                <li>Added a one-click CSV export formatted to drop straight into their supplier's ordering portal.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+<section id="booking" class="section">
+  <div class="section-head reveal"><h2>Book a project (or a barista)</h2></div>
+  <p class="reveal booking-intro">Fill this in with a rough idea of scope and timeline — for a web project or an on-site barista booking. No payment or commitment yet. I reply within one business day. Currently booking for October.</p>
+  <form class="booking-form reveal" id="bookingForm" action="https://formspree.io/f/mqkvqvqk" method="POST">
+    <div class="field"><label for="bk-name">Name</label><input type="text" id="bk-name" name="name" required autocomplete="name"></div>
+    <div class="field"><label for="bk-email">Email</label><input type="email" id="bk-email" name="email" required autocomplete="email"></div>
+    <div class="field"><label for="bk-type">I’m booking</label><select id="bk-type" name="type"><option>A web project</option><option>On-site barista service</option><option>Something else</option></select></div>
+    <div class="field"><label for="bk-budget">Budget range</label><select id="bk-budget" name="budget"><option>Under $500</option><option>$500 — $1,500</option><option>$1,500 — $5,000</option><option>$5,000+</option><option>Not sure yet</option></select></div>
+    <div class="field"><label for="bk-date">Preferred start / event date</label><input type="date" id="bk-date" name="date"></div>
+    <div class="field"><label for="bk-timeline">Rough deadline</label><input type="text" id="bk-timeline" name="timeline" placeholder="e.g. mid-November"></div>
+    <div class="field field-wide"><label for="bk-details">Project details</label><textarea id="bk-details" name="details" rows="4" placeholder="What are we building? Or how many guests need coffee?"></textarea></div>
+    <button type="submit" class="btn btn-dark btn-big">Send booking request →</button>
+    <p id="bookingStatus" class="form-status" role="status"></p>
+  </form>
+</section>
 
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="shopify,liquid,js">
-          <div class="top"><span class="year mono">2024</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>Ferro Coffee — online storefront</h3>
-          <p>Shopify build with a custom subscription flow for a roastery's monthly bag program, including a delivery-date picker clients actually understood.</p>
-          <div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Built a custom Liquid subscription flow on top of Shopify's checkout, since the stock subscription app didn't fit the roastery's cadence.</li>
-                <li>Designed a plain-language delivery-date picker after customers kept emailing to ask when their bag would ship.</li>
-                <li>Handed off with a short Loom walkthrough so the owner could add new bag sizes without a developer.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+<section id="contact" class="contact">
+  <div class="reveal">
+    <h2>Let’s make something <span class="hl hl-yellow">great</span> together</h2>
+    <div class="contact-links">
+      <a href="mailto:feizalsmitth@icloud.com" class="contact-line">feizalsmitth@icloud.com</a>
+      <a href="tel:+254702478201" class="contact-line">+254 702 478 201</a>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
 
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="html/css,stripe,a11y">
-          <div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>Public Notice — nonprofit rebuild</h3>
-          <p>Accessibility-first rebuild of a nonprofit's donation site: faster pages, a screen-reader-tested checkout, and a 40% lift in completed donations.</p>
-          <div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Rebuilt the donation form from scratch after screen-reader testing showed donors were abandoning it mid-flow.</li>
-                <li>Simplified the Stripe checkout to three fields per step, which tracked with the 40% rise in completed donations.</li>
-                <li>Ran a full keyboard-navigation pass so the whole site, not just the checkout, meets WCAG AA.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="project" tabindex="0" role="button" aria-expanded="false" data-tags="react,api,weather">
-          <div class="top"><span class="year mono">2023</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg></div>
-          <h3>Nairobi Weather App</h3>
-          <p>A React app fetching real-time weather data for Nairobi using the OpenWeather API. Built with clean state management and deployed on Netlify.</p>
-          <div class="tags"><span>React</span><span>API</span><span>Weather</span></div>
-          <div class="expand-hint">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-          <div class="details">
-            <div class="details-inner">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Built with React Hooks and Context API for state management.</li>
-                <li>Fetches and displays 5-day forecast with error handling and loading states.</li>
-                <li>Deployed on Netlify with CI/CD pipeline for automatic updates.</li>
-              </ul>
-              <h4>Links</h4>
-              <ul>
-                <li><a href="https://nairobi-weather.netlify.app" target="_blank" rel="noopener" style="color:var(--amber)">Live Demo →</a></li>
-                <li><a href="https://github.com/feizalsmitth/nairobi-weather" target="_blank" rel="noopener" style="color:var(--amber)">GitHub Repo →</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="section-head"><span class="n mono">03.5</span><h2>Experience</h2><span class="rule"></span></div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date mono">2023—Present</div>
-          <div class="timeline-content">
-            <h3>Freelance Frontend Developer</h3>
-            <p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date mono">2022—2023</div>
-          <div class="timeline-content">
-            <h3>Junior Developer @ Local Studio</h3>
-            <p>Worked on React-based web applications and collaborated with designers on UI/UX implementations. Gained experience with Shopify Liquid and performance optimization.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date mono">2021—2022</div>
-          <div class="timeline-content">
-            <h3>Junior Coffee Roaster @ Kenyan Barisa</h3>
-            <p>Worked as a Junior Coffee Roaster, honing my craft in roasting high-quality coffee beans. Also served as a barista, preparing and serving specialty coffee beverages with precision and care.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-      <div class="section-head"><span class="n mono">04</span><h2>Testimonials</h2><span class="rule"></span></div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">AW</div>
-          <p>"Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding."</p>
-          <cite>A. Whitfield, Harrow & Finch</cite>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">RO</div>
-          <p>"The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly."</p>
-          <cite>R. Okoye, Loomstack</cite>
-        </div>
-      </div>
-    </section>
-
-    <!-- Coffee Section -->
-    <section id="coffee">
-      <div class="section-head"><span class="n mono">04.5</span><h2>Coffee Roasting & Barista Services</h2><span class="rule"></span></div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
-        <div>
-          <p>Beyond coding, I’m a passionate <strong>coffee roaster</strong> and <strong>barista</strong>. I previously worked as a <strong>Junior Coffee Roaster at Kenyan Barisa</strong>, where I honed my craft in roasting high-quality beans and preparing specialty coffee.</p>
-          <p>I offer <strong>on-site barista services</strong> for events, pop-ups, and small gatherings in Nairobi. Whether it’s a product launch or a cozy get-together, I’ll pull shots that impress your guests.</p>
-          <a href="#booking" class="cta" style="margin-top: 16px;">Book Barista Service →</a>
-        </div>
-        <div>
-          <img src="https://via.placeholder.com/500x400/0a0d12/e3af4f?text=Coffee+Roasting" alt="Coffee Roasting" loading="lazy" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);">
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="section-head"><span class="n mono">05</span><h2>How a project comes together</h2><span class="rule"></span></div>
-      <div class="steps">
-        <div class="step"><span class="num mono">01</span><div><h4>Brief</h4><p>A call to get the goal, the constraints, and the deadline on paper.</p></div></div>
-        <div class="step"><span class="num mono">02</span><div><h4>Draft</h4><p>A structure and a rough layout, so we agree on shape before pixels.</p></div></div>
-        <div class="step"><span class="num mono">03</span><div><h4>Build</h4><p>The actual site, in weekly checkpoints you can click through.</p></div></div>
-        <div class="step"><span class="num mono">04</span><div><h4>Proof</h4><p>Cross-device testing, real content, and a round of your feedback.</p></div></div>
-        <div class="step"><span class="num mono">05</span><div><h4>Ship</h4><p>Launch, a walkthrough of the code, and a plan for what's next.</p></div></div>
-      </div>
-
-      <div class="quotes" style="margin-top:44px">
-        <div class="quote"><p>"You explained every decision in plain English, which meant I could actually make choices instead of just nodding along."</p><cite>A. Whitfield, Harrow &amp; Finch</cite></div>
-        <div class="quote"><p>"The dashboard replaced a spreadsheet three people were scared to touch. Nobody's scared of it now."</p><cite>R. Okoye, Loomstack</cite></div>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog">
-      <div class="section-head"><span class="n mono">05.5</span><h2>Blog</h2><span class="rule"></span></div>
-      <div class="blog-grid">
-        <article class="blog-post" data-tags="javascript,web-dev">
-          <div class="blog-meta">
-            <span class="blog-date mono">Sep 2026</span>
-            <span class="blog-tag">JavaScript</span>
-            <span class="blog-tag">Web Dev</span>
-          </div>
-          <h3>Getting Started with React Hooks</h3>
-          <p>A deep dive into React Hooks and how they simplify state management in functional components.</p>
-          <a href="#" class="blog-read-more">Read more →</a>
-        </article>
-        <article class="blog-post" data-tags="css,design">
-          <div class="blog-meta">
-            <span class="blog-date mono">Aug 2026</span>
-            <span class="blog-tag">CSS</span>
-            <span class="blog-tag">Design</span>
-          </div>
-          <h3>CSS Grid vs. Flexbox: When to Use Each</h3>
-          <p>A comparison of CSS Grid and Flexbox, with practical examples for modern layouts.</p>
-          <a href="#" class="blog-read-more">Read more →</a>
-        </article>
-        <article class="blog-post" data-tags="javascript,tools">
-          <div class="blog-meta">
-            <span class="blog-date mono">Jul 2026</span>
-            <span class="blog-tag">JavaScript</span>
-            <span class="blog-tag">Tools</span>
-          </div>
-          <h3>Automating Workflows with GitHub Actions</h3>
-          <p>How to set up GitHub Actions to automate testing, deployment, and other repetitive tasks.</p>
-          <a href="#" class="blog-read-more">Read more →</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section id="newsletter" style="padding: 64px 0; text-align: center;">
-      <h2 style="font-size: 1.5rem; margin-bottom: 12px;">Stay Updated</h2>
-      <p style="color: var(--ink-dim); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to my newsletter for updates on my latest projects, coffee roasting tips, and frontend development insights.</p>
-      <form action="https://formspree.io/f/mqkvqvqk" method="POST" style="display: flex; max-width: 400px; margin: 0 auto; gap: 12px;">
-        <input type="email" name="EMAIL" placeholder="Your email" required style="flex: 1; padding: 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--bg); color: var(--ink-bright);">
-        <button type="submit" class="cta">Subscribe →</button>
-      </form>
-    </section>
-
-    <section id="booking">
-      <div class="section-head"><span class="n mono">06</span><h2>Book a project</h2><span class="rule"></span></div>
-      <p class="booking-intro">Fill this in with a rough idea of scope and timeline — for a web project or an on-site barista booking. No payment or commitment yet. I reply within one business day to confirm a slot and next steps. Currently booking for October.</p>
-
-      <form class="booking-form" id="bookingForm" action="https://formspree.io/f/mqkvqvqk" method="POST">
-        <div class="field">
-          <label for="bk-name">Name</label>
-          <input type="text" id="bk-name" name="name" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="bk-email">Email</label>
-          <input type="email" id="bk-email" name="email" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="bk-type">What do you need</label>
-          <select id="bk-type" name="type" required>
-            <option value="">Select...</option>
-            <option value="Website">Website or landing page</option>
-            <option value="Dashboard">Dashboard or internal tool</option>
-            <option value="Barista">On-site barista service</option>
-            <option value="Other">Something else</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="bk-budget">Budget range</label>
-          <select id="bk-budget" name="budget" required>
-            <option value="">Select...</option>
-            <option value="<5k">Under $5,000</option>
-            <option value="5k-15k">$5,000 – $15,000</option>
-            <option value="15k-30k">$15,000 – $30,000</option>
-            <option value=">30k">Over $30,000</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="bk-date">Preferred start / event date</label>
-          <input type="date" id="bk-date" name="date" required>
-        </div>
-        <div class="field">
-          <label for="bk-timeline">Rough deadline</label>
-          <input type="text" id="bk-timeline" name="timeline" placeholder="e.g., 4 weeks or end of Q3">
-        </div>
-        <div class="field full">
-          <label for="bk-details">Project details</label>
-          <textarea id="bk-details" name="details" placeholder="A short description of what you need built or served."></textarea>
-        </div>
-        <div class="booking-submit">
-          <button type="submit">Send request</button>
-          <span class="booking-note">No payment or commitment yet.</span>
-        </div>
-        <div class="booking-status" id="bookingStatus"></div>
-      </form>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="section-head"><span class="n mono">07</span><h2>Contact</h2><span class="rule"></span></div>
-      <div class="contact-container">
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mqkvqvqk" method="POST">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="field">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit cta">Send Message</button>
-          <div id="form-message" class="form-message"></div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <span class="mono">Feisal Onyango — Nairobi, Kenya</span>
-    <a href="#top" id="backToTop" aria-label="Back to top" style="display:none;">Back to top ↑</a>
-  </footer>
-</div>
-
-<div id="floatingNav" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:none;z-index:1000;">
-  <a href="#about" style="padding:8px 16px;border:1px solid var(--line);border-radius:4px;color:var(--ink);background:var(--bg-raised);margin:0 4px;">About</a>
-  <a href="#work" style="padding:8px 16px;border:1px solid var(--line);border-radius:4px;color:var(--ink);background:var(--bg-raised);margin:0 4px;">Work</a>
-  <a href="#contact" style="padding:8px 16px;border:1px solid var(--line);border-radius:4px;color:var(--ink);background:var(--bg-raised);margin:0 4px;">Contact</a>
-</div>
-
-<div id="socialProof">
-  <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-    GitHub
-  </a>
-  <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg>
-    LinkedIn
-  </a>
-  <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
-    Instagram
-  </a>
-  <a href="mailto:feizalsmitth@icloud.com" id="copyEmail" style="cursor:pointer;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
-    Copy Email
-    <span id="copyStatus" style="display:none;color:var(--amber);margin-left:8px;">Copied!</span>
-  </a>
-</div>
+<footer class="footer">
+  <p>© <span id="year"></span> Feisal Onyango. Built with care in Nairobi.</p>
+  <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</footer>
 
 <script src="script.js"></script>
 </body>
