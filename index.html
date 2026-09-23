@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feisal Onyango — Frontend Developer</title>
 <meta name="description" content="Feisal Onyango is a frontend developer in Nairobi, Kenya, building fast, accessible websites and interfaces for studios and small businesses.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>U0001F4BB</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='monospace' fill='%2364ffda'>F</text></svg>">
 <meta property="og:title" content="Feisal Onyango — Frontend Developer">
 <meta property="og:description" content="Frontend developer in Nairobi, Kenya building fast, accessible websites and interfaces">
 <meta property="og:type" content="website">
@@ -14,177 +14,156 @@
 <meta name="twitter:creator" content="@feizalsmitth">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
 
-<header class="nav">
-  <a class="logo" href="#top">Feisal<span>.</span></a>
-  <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-    <a href="#booking" class="nav-cta">Book me →</a>
+<header class="nav" id="nav">
+  <a class="logo mono" href="#top"><span class="accent">&lt;</span>feisal<span class="accent">.dev</span><span class="accent"> /&gt;</span></a>
+  <nav class="nav-links mono" id="navLinks" aria-label="Main navigation">
+    <a href="#about"><span class="n">01.</span>about</a>
+    <a href="#experience"><span class="n">02.</span>experience</a>
+    <a href="#work"><span class="n">03.</span>work</a>
+    <a href="#blog"><span class="n">04.</span>writing</a>
+    <a href="#contact"><span class="n">05.</span>contact</a>
+    <a href="assets/Feisal-Onyango-CV.pdf" class="nav-cta mono" target="_blank" rel="noopener">résumé</a>
   </nav>
   <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
 
-<section class="hero">
-  <div class="hero-text reveal">
-    <p class="hero-kicker">Frontend developer · Nairobi, Kenya</p>
-    <h1>I build <span class="hl">fast, accessible</span> websites that feel <span class="hl hl-yellow">effortless</span>.</h1>
-    <p class="hero-sub">I design and build websites and interfaces for studios and small businesses — clean code, quick loads, and interfaces that still feel right two years after launch.</p>
-    <div class="hero-btns">
-      <a href="#work" class="btn btn-dark">See my work</a>
-      <a href="#about" class="btn btn-outline">More about me</a>
+<main class="container">
+
+<section class="hero" id="hero">
+  <p class="hero-kicker mono accent reveal">hi, my name is</p>
+  <h1 class="reveal">Feisal Onyango.</h1>
+  <h2 class="reveal">I build things for the web.</h2>
+  <p class="hero-sub reveal">I’m a frontend developer based in Nairobi, Kenya, specializing in building (and occasionally designing) fast, accessible, pixel-perfect interfaces for studios and small businesses. Currently booking projects for October.</p>
+  <div class="hero-btns reveal">
+    <a href="#work" class="btn btn-outline mono">check out my work</a>
+    <a href="#booking" class="btn btn-outline mono">book a project</a>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="section-head mono reveal"><span class="n">01.</span><h2>about me</h2></div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p>Hello! I’m Feisal, a frontend-focused web developer based in Nairobi, Kenya. I enjoy building interfaces that feel fast and behave the way people expect — my work usually lands somewhere between a brochure site and a small business’s entire front end, with real users and real deadlines.</p>
+      <p>I specialize in turning designs into responsive, accessible interfaces with <strong>React</strong>, <strong>JavaScript</strong>, and clean CSS — the kind of front end that still looks and works right two years after launch, on whatever device someone happens to be holding.</p>
+      <p class="skills-title mono">here are a few technologies I’ve been working with recently:</p>
+      <ul class="skills-list mono">
+        <li>JavaScript (ES6+)</li><li>TypeScript</li><li>React</li><li>Next.js</li>
+        <li>Node.js</li><li>Tailwind CSS</li><li>Shopify / Liquid</li><li>Figma</li>
+      </ul>
+    </div>
+    <div class="about-photo reveal">
+      <div class="photo-frame">
+        <img src="assets/feisal.jpg" alt="Portrait of Feisal Onyango" loading="lazy" onerror="this.src='https://via.placeholder.com/640x640/112240/64ffda?text=Add+assets/feisal.jpg';">
+      </div>
     </div>
   </div>
-  <div class="hero-photo reveal">
-    <div class="duotone">
-      <img src="assets/feisal.jpg" alt="Portrait of Feisal Onyango" loading="eager" onerror="this.src='https://via.placeholder.com/700x880/111111/FFC53D?text=Add+assets/feisal.jpg';">
+</section>
+
+<section id="experience" class="section">
+  <div class="section-head mono reveal"><span class="n">02.</span><h2>where I’ve worked</h2></div>
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <h3>Freelance Frontend Developer <span class="where accent mono">@ self-employed</span></h3>
+      <p class="range mono">2023 — present</p>
+      <p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces — shipped, maintained, and iterated on with feedback within a week of going live.</p>
+      <ul class="tags mono"><li>React</li><li>Next.js</li><li>Shopify</li><li>CSS</li></ul>
     </div>
-    <div class="hero-badge">Frontend, done right</div>
+    <div class="timeline-item">
+      <h3>Junior Developer <span class="where accent mono">@ local studio</span></h3>
+      <p class="range mono">2022 — 2023</p>
+      <p>Worked on React-based web applications and collaborated with designers on UI/UX implementations. Gained experience with Shopify Liquid and performance optimization.</p>
+      <ul class="tags mono"><li>React</li><li>Shopify Liquid</li><li>JavaScript</li></ul>
+    </div>
   </div>
 </section>
 
 <section id="work" class="section">
-  <div class="section-head reveal"><h2>Some of my latest work</h2><a href="#booking" class="see-all">Start a project →</a></div>
-  <div class="work-grid">
-    <article class="work-card reveal" data-tags="next.js,sanity cms,vercel">
-      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Harrow+%26+Finch" alt="Harrow &amp; Finch studio site">
-      <h3>Harrow &amp; Finch — studio site</h3>
-      <p>A five-page marketing site for a design studio, rebuilt into a fast, editable CMS-backed site.</p>
-      <div class="tags"><span>Next.js</span><span>Sanity CMS</span><span>Vercel</span></div>
+  <div class="section-head mono reveal"><span class="n">03.</span><h2>some things I’ve built</h2></div>
+  <div class="projects-grid">
+    <article class="project reveal">
+      <div class="project-top"><h3>KaaSoko Marketplace</h3><div class="project-links"><a class="mono" href="https://kaasoko.vercel.app" target="_blank" rel="noopener" aria-label="Live site">link ↗</a></div></div>
+      <p>A headless Shopify storefront for a local artisan marketplace, featuring advanced filtering and search across 500+ products.</p>
+      <ul class="tags mono"><li>Next.js</li><li>Shopify API</li><li>React</li></ul>
     </article>
-    <article class="work-card reveal" data-tags="react,node,postgresql">
-      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Loomstack" alt="Loomstack inventory dashboard">
-      <h3>Loomstack — inventory dashboard</h3>
-      <p>Internal tool replacing a shared spreadsheet — stock levels, reorder alerts, and one-click CSV export.</p>
-      <div class="tags"><span>React</span><span>Node</span><span>PostgreSQL</span></div>
+    <article class="project reveal">
+      <div class="project-top"><h3>Harrow &amp; Finch</h3><div class="project-links mono">2025</div></div>
+      <p>A five-page marketing site for a design studio, rebuilt from a static template into a fast, editable CMS-backed site with preview builds on every PR.</p>
+      <ul class="tags mono"><li>Next.js</li><li>Sanity CMS</li><li>Vercel</li></ul>
     </article>
-    <article class="work-card reveal" data-tags="shopify,liquid,js">
-      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Ferro+Coffee" alt="Ferro Coffee online storefront">
-      <h3>Ferro Coffee — storefront</h3>
-      <p>Shopify build with a custom subscription flow for a roastery’s monthly bag program.</p>
-      <div class="tags"><span>Shopify</span><span>Liquid</span><span>JS</span></div>
+    <article class="project reveal">
+      <div class="project-top"><h3>Loomstack Dashboard</h3><div class="project-links mono">2024</div></div>
+      <p>Internal tool that replaced a shared spreadsheet — stock levels, per-SKU reorder alerts, and a one-click CSV export for a small e-commerce team.</p>
+      <ul class="tags mono"><li>React</li><li>Node.js</li><li>PostgreSQL</li></ul>
     </article>
-    <article class="work-card reveal" data-tags="html/css,stripe,a11y">
-      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Public+Notice" alt="Public Notice nonprofit rebuild">
-      <h3>Public Notice — nonprofit rebuild</h3>
-      <p>Accessibility-first rebuild of a donation site — faster pages and a 40% lift in completed donations.</p>
-      <div class="tags"><span>HTML/CSS</span><span>Stripe</span><span>a11y</span></div>
+    <article class="project reveal">
+      <div class="project-top"><h3>Ferro Coffee Storefront</h3><div class="project-links mono">2024</div></div>
+      <p>Shopify build with a custom subscription flow for a roastery’s monthly bag program, including a plain-language delivery-date picker.</p>
+      <ul class="tags mono"><li>Shopify</li><li>Liquid</li><li>JavaScript</li></ul>
     </article>
-    <article class="work-card reveal featured" data-tags="next.js,shopify,react">
-      <img src="https://via.placeholder.com/1200x640/111111/FFC53D?text=KaaSoko+Marketplace" alt="KaaSoko Marketplace">
-      <h3>KaaSoko Marketplace — featured</h3>
-      <p>A headless Shopify storefront for a local artisan marketplace, with advanced filtering and search for 500+ products.</p>
-      <div class="tags"><span>Next.js</span><span>Shopify API</span><span>React</span></div>
-      <a class="work-link" href="https://kaasoko.vercel.app" target="_blank" rel="noopener">Visit live site →</a>
+    <article class="project reveal">
+      <div class="project-top"><h3>Public Notice</h3><div class="project-links mono">2023</div></div>
+      <p>Accessibility-first rebuild of a nonprofit’s donation site — faster pages, a screen-reader-tested checkout, and a 40% lift in completed donations.</p>
+      <ul class="tags mono"><li>HTML/CSS</li><li>Stripe</li><li>a11y</li></ul>
     </article>
-    <article class="work-card reveal" data-tags="react,api,weather">
-      <img src="https://via.placeholder.com/800x560/111111/FFC53D?text=Nairobi+Weather" alt="Nairobi Weather App">
-      <h3>Nairobi Weather App</h3>
-      <p>React app fetching real-time weather for Nairobi with clean state management, deployed on Netlify.</p>
-      <div class="tags"><span>React</span><span>API</span><span>Netlify</span></div>
-      <a class="work-link" href="https://nairobi-weather.netlify.app" target="_blank" rel="noopener">Live demo →</a>
+    <article class="project reveal">
+      <div class="project-top"><h3>Nairobi Weather App</h3><div class="project-links"><a class="mono" href="https://nairobi-weather.netlify.app" target="_blank" rel="noopener" aria-label="Live demo">link ↗</a></div></div>
+      <p>React app fetching real-time weather and a 5-day forecast for Nairobi, with clean state management and deployed on Netlify with CI/CD.</p>
+      <ul class="tags mono"><li>React</li><li>OpenWeather API</li><li>Netlify</li></ul>
     </article>
-  </div>
-</section>
-
-<section id="about" class="section section-alt">
-  <div class="two-col">
-    <div class="reveal">
-      <h2 class="big-title">I design &amp; code <span class="hl hl-yellow">clean interfaces</span></h2>
-      <p>I’m Feisal, a frontend-focused web developer based in Nairobi, Kenya, with two years of experience building interfaces that feel fast and behave the way people expect. Most of my work lands somewhere between a brochure site and a small business’s entire front end — real users, real deadlines, feedback within a week of shipping.</p>
-      <p>I specialize in turning designs into responsive, accessible interfaces with <strong>React</strong>, <strong>JavaScript</strong>, and clean CSS — the kind of front end that still looks and works right two years after launch, on whatever device someone happens to be holding.</p>
-      <div class="skill-chips">
-        <span>JavaScript</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Tailwind CSS</span><span>Git &amp; GitHub</span><span>Figma</span><span>Accessibility</span><span>Performance</span>
-      </div>
-    </div>
-    <div class="about-photo reveal">
-      <div class="duotone duotone-alt">
-        <img src="assets/feisal.jpg" alt="Feisal Onyango at work" loading="lazy" onerror="this.src='https://via.placeholder.com/700x800/FFC53D/111111?text=Add+assets/feisal.jpg';">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section">
-  <div class="section-head reveal"><h2>What I can do for you</h2></div>
-  <div class="services-grid">
-    <div class="service reveal"><h3>Websites &amp; landing pages</h3><p>Marketing sites, portfolios, and product pages — built responsive from the first breakpoint, with clean, maintainable markup underneath.</p></div>
-    <div class="service reveal"><h3>Design-to-code</h3><p>Turning Figma files and mockups into pixel-accurate, responsive interfaces — no gaps between what was designed and what ships.</p></div>
-    <div class="service reveal"><h3>Performance &amp; polish</h3><p>Speeding up slow pages, fixing layout shift, and cleaning up CSS — the details that make a site feel fast and finished.</p></div>
-    <div class="service reveal"><h3>Ongoing frontend work</h3><p>Small retainers for new components, UI fixes, and the “can you just tweak this” requests that come up after launch.</p></div>
-  </div>
-</section>
-
-<section id="experience" class="section section-alt">
-  <div class="reveal" style="max-width:1200px;margin-left:auto;margin-right:auto">
-  <div class="section-head"><h2>Where I’ve been</h2></div>
-  <div class="timeline">
-    <div class="timeline-item reveal"><span class="year">2023—Present</span><div><h3>Freelance Frontend Developer</h3><p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces.</p></div></div>
-    <div class="timeline-item reveal"><span class="year">2022—2023</span><div><h3>Junior Developer @ Local Studio</h3><p>Worked on React-based web applications and collaborated with designers on UI/UX implementations. Gained experience with Shopify Liquid and performance optimization.</p></div></div>
-  </div>
   </div>
 </section>
 
 <section id="testimonials" class="section">
-  <div class="section-head reveal"><h2>Nice things clients say</h2></div>
-  <div class="quotes">
-    <div class="quote reveal"><p>“Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding.”</p><cite>A. Whitfield, Harrow &amp; Finch</cite></div>
-    <div class="quote reveal"><p>“The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly.”</p><cite>R. Okoye, Loomstack</cite></div>
+  <div class="section-head mono reveal"><span class="n">03.5</span><h2>kind words</h2></div>
+  <div class="quotes-grid">
+    <blockquote class="quote reveal"><p>“Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding.”</p><cite class="mono">— A. Whitfield, Harrow &amp; Finch</cite></blockquote>
+    <blockquote class="quote reveal"><p>“The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly.”</p><cite class="mono">— R. Okoye, Loomstack</cite></blockquote>
   </div>
 </section>
 
-<section id="blog" class="section section-alt">
-  <div class="reveal" style="max-width:1200px;margin-left:auto;margin-right:auto">
-  <div class="section-head"><h2>From the blog</h2></div>
-  <div class="blog-grid">
-    <article class="blog-post reveal"><span class="blog-date">Sep 2026</span><h3>Getting Started with React Hooks</h3><p>A deep dive into React Hooks and how they simplify state management in functional components.</p><a href="#" class="work-link">Read more →</a></article>
-    <article class="blog-post reveal"><span class="blog-date">Aug 2026</span><h3>CSS Grid vs. Flexbox: When to Use Each</h3><p>A comparison of CSS Grid and Flexbox, with practical examples for modern layouts.</p><a href="#" class="work-link">Read more →</a></article>
-    <article class="blog-post reveal"><span class="blog-date">Jul 2026</span><h3>Automating Workflows with GitHub Actions</h3><p>How to set up GitHub Actions to automate testing, deployment, and other repetitive tasks.</p><a href="#" class="work-link">Read more →</a></article>
-  </div>
+<section id="blog" class="section">
+  <div class="section-head mono reveal"><span class="n">04.</span><h2>writing</h2></div>
+  <div class="writing-list reveal">
+    <a href="#" class="writing-item"><span class="mono year accent">2026</span><h3>Getting Started with React Hooks</h3></a>
+    <a href="#" class="writing-item"><span class="mono year accent">2026</span><h3>CSS Grid vs. Flexbox: When to Use Each</h3></a>
+    <a href="#" class="writing-item"><span class="mono year accent">2026</span><h3>Automating Workflows with GitHub Actions</h3></a>
   </div>
 </section>
 
 <section id="booking" class="section">
-  <div class="section-head reveal"><h2>Book a project</h2></div>
-  <p class="reveal booking-intro">Fill this in with a rough idea of scope and timeline. No payment or commitment yet. I reply within one business day. Currently booking for October.</p>
+  <div class="section-head mono reveal"><span class="n">04.5</span><h2>book a project</h2></div>
+  <p class="reveal booking-intro">Fill this in with a rough idea of scope and timeline. No payment or commitment yet — I reply within one business day.</p>
   <form class="booking-form reveal" id="bookingForm" action="https://formspree.io/f/mqkvqvqk" method="POST">
-    <div class="field"><label for="bk-name">Name</label><input type="text" id="bk-name" name="name" required autocomplete="name"></div>
-    <div class="field"><label for="bk-email">Email</label><input type="email" id="bk-email" name="email" required autocomplete="email"></div>
-    <div class="field"><label for="bk-type">Project type</label><select id="bk-type" name="type"><option>Marketing site / portfolio</option><option>Web app / dashboard</option><option>E-commerce store</option><option>Performance &amp; polish work</option><option>Something else</option></select></div>
-    <div class="field"><label for="bk-budget">Budget range</label><select id="bk-budget" name="budget"><option>Under $500</option><option>$500 — $1,500</option><option>$1,500 — $5,000</option><option>$5,000+</option><option>Not sure yet</option></select></div>
-    <div class="field"><label for="bk-date">Preferred start date</label><input type="date" id="bk-date" name="date"></div>
-    <div class="field"><label for="bk-timeline">Rough deadline</label><input type="text" id="bk-timeline" name="timeline" placeholder="e.g. mid-November"></div>
-    <div class="field field-wide"><label for="bk-details">Project details</label><textarea id="bk-details" name="details" rows="4" placeholder="What are we building?"></textarea></div>
-    <button type="submit" class="btn btn-dark btn-big">Send booking request →</button>
-    <p id="bookingStatus" class="form-status" role="status"></p>
+    <div class="field"><label class="mono" for="bk-name">name</label><input type="text" id="bk-name" name="name" required autocomplete="name"></div>
+    <div class="field"><label class="mono" for="bk-email">email</label><input type="email" id="bk-email" name="email" required autocomplete="email"></div>
+    <div class="field"><label class="mono" for="bk-type">project type</label><select id="bk-type" name="type"><option>Marketing site / portfolio</option><option>Web app / dashboard</option><option>E-commerce store</option><option>Performance &amp; polish work</option><option>Something else</option></select></div>
+    <div class="field"><label class="mono" for="bk-budget">budget range</label><select id="bk-budget" name="budget"><option>Under $500</option><option>$500 — $1,500</option><option>$1,500 — $5,000</option><option>$5,000+</option><option>Not sure yet</option></select></div>
+    <div class="field"><label class="mono" for="bk-date">preferred start date</label><input type="date" id="bk-date" name="date"></div>
+    <div class="field"><label class="mono" for="bk-timeline">rough deadline</label><input type="text" id="bk-timeline" name="timeline" placeholder="e.g. mid-November"></div>
+    <div class="field field-wide"><label class="mono" for="bk-details">project details</label><textarea id="bk-details" name="details" rows="4" placeholder="What are we building?"></textarea></div>
+    <button type="submit" class="btn btn-outline mono btn-big">send booking request →</button>
+    <p id="bookingStatus" class="form-status mono" role="status"></p>
   </form>
 </section>
 
-<section id="contact" class="contact">
-  <div class="reveal">
-    <h2>Let’s make something <span class="hl hl-yellow">great</span> together</h2>
-    <div class="contact-links">
-      <a href="mailto:feizalsmitth@icloud.com" class="contact-line">feizalsmitth@icloud.com</a>
-      <a href="tel:+254702478201" class="contact-line">+254 702 478 201</a>
-    </div>
-    <div class="socials">
-      <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </div>
+<section id="contact" class="section contact">
+  <p class="mono accent reveal">04.75. what’s next?</p>
+  <h2 class="reveal">get in touch</h2>
+  <p class="reveal contact-sub">My inbox is always open — whether you have a project in mind, a question, or just want to say hi. I’ll do my best to get back to you within one business day.</p>
+  <a href="mailto:feizalsmitth@icloud.com" class="btn btn-outline mono reveal">say hello</a>
 </section>
 
-<footer class="footer">
-  <p>© <span id="year"></span> Feisal Onyango. Built with care in Nairobi.</p>
-  <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</main>
+
+<footer class="footer mono">
+  <p>© <span id="year"></span> feisal onyango · built &amp; designed in nairobi</p>
+  <div class="footer-links"><a href="privacy.html">privacy</a><a href="terms.html">terms</a></div>
 </footer>
 
 <script src="script.js"></script>
