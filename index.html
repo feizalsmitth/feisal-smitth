@@ -27,7 +27,8 @@
 
 <header class="nav" id="nav">
   <a class="logo mono" href="#top"><span class="accent">&lt;</span>feisal<span class="accent">.dev</span><span class="accent"> /&gt;</span></a>
-  <nav class="nav-links mono" id="navLinks" aria-label="Main navigation">
+  <nav class="nav
+-links mono" id="navLinks" aria-label="Main navigation">
     <a href="#about"><span class="n">01.</span>about</a>
     <a href="#experience"><span class="n">02.</span>experience</a>
     <a href="#work"><span class="n">03.</span>work</a>
@@ -47,7 +48,8 @@
 
 <aside class="social-rail mono" aria-label="Social links">
   <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
-  <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.
+  <a href="https://www.linkedin.com/in/feizal-onyango-44
+3553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.
 49 3.39V23H8.5V8.98Z"/></svg></a>
   <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></a>
   <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
@@ -62,10 +64,12 @@
   <h1 class="reveal">Feisal Onyango.</h1>
   <h2 class="reveal"><span class="sr-only">I build things for the web.</span><span id="typed" aria-hidden="true"></span><span class="cursor" aria-hidden="true">_</span></h2>
   <p class="hero-sub reveal">I’m a frontend developer based in Nairobi, Kenya, specializing in building (and occasionally designing) fast, accessible, pixel-perfect interfaces for studios and small businesses. Currently booking projects for October.</p>
-  <div class="hero-btns reveal">
+  <div class="hero-btns reveal
+">
     <a href="#work" class="btn btn-outline mono">check out my work</a>
     <a href="#booking" class="btn btn-outline mono">book a project</a>
   </div>
+  <p class="hero-status mono reveal"><span class="pulse-dot" aria-hidden="true"></span> available for new projects · <span id="nairobiTime">--:--</span> in Nairobi</p>
 </section>
 
 <section id="about" class="section">
@@ -80,7 +84,13 @@ ing interfaces that feel fast and behave the way people expect — my work usual
         <li>JavaScript (ES6+)</li><li>TypeScript</li><li>React</li><li>Next.js</li>
         <li>Node.js</li><li>Tailwind CSS</li><li>Shopify / Liquid</li><li>Figma</li>
       </ul>
-    </div>  </div>
+    </div>
+    <div class="about-photo reveal">
+      <div class="photo-frame">
+        <img src="assets/feisal.jpg" alt="Portrait of Feisal Onyango" loading="lazy" onerror="this.src='https://via.placeholder.com/640x640/112240/64ffda?text=Add+assets/feisal.jpg';">
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="experience" class="section">
@@ -89,7 +99,8 @@ ing interfaces that feel fast and behave the way people expect — my work usual
     <div class="timeline-item">
       <h3>Freelance Frontend Developer <span class="where accent mono">@ self-employed</span></h3>
       <p class="range mono">2023 — present</p>
-      <p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and internationally. Specializing in React, Next.js, and accessible interfaces — shipped, maintained, and iterated on with feedback within a week of going live.</p>
+      <p>Building websites, dashboards, and e-commerce stores for clients in Nairobi and
+ internationally. Specializing in React, Next.js, and accessible interfaces — shipped, maintained, and iterated on with feedback within a week of going live.</p>
       <ul class="tags mono"><li>React</li><li>Next.js</li><li>Shopify</li><li>CSS</li></ul>
     </div>
     <div class="timeline-item">
@@ -104,7 +115,8 @@ ing interfaces that feel fast and behave the way people expect — my work usual
 
 <section id="work" class="section">
   <div class="section-head mono reveal"><span class="n">03.</span><h2>some things I’ve built</h2></div>
-  <div class="projects-grid">
+    <div class="filter-bar mono reveal" id="filterBar" role="group" aria-label="Filter projects by technology"></div>
+<div class="projects-grid">
     <article class="project reveal">
       <div class="project-top"><h3>KaaSoko Marketplace</h3><div class="project-links"><a class="mono" href="https://kaasoko.vercel.app" target="_blank" rel="noopener" aria-label="Live site">link ↗</a></div></div>
       <p>A headless Shopify storefront for a local artisan marketplace, featuring advanced filtering and search across 500+ products.</p>
@@ -117,7 +129,8 @@ ing interfaces that feel fast and behave the way people expect — my work usual
     </article>
     <article class="project reveal">
       <div class="project-top"><h3>Loomstack Dashboard</h3><div class="project-links mono">2024</div></div>
-      <p>Internal tool that replaced a shared spreadsheet — stock levels, per-SKU reorder alerts, and a one-click CSV export for a small e-commerce team.</p>
+      <p>Internal tool that replaced a shared spreadsheet — stoc
+k levels, per-SKU reorder alerts, and a one-click CSV export for a small e-commerce team.</p>
       <ul class="tags mono"><li>React</li><li>Node.js</li><li>PostgreSQL</li></ul>
     </article>
     <article class="project reveal">
@@ -143,7 +156,8 @@ plain-language delivery-date picker.</p>
   <div class="section-head mono reveal"><span class="n">03.5</span><h2>kind words</h2></div>
   <div class="quotes-grid">
     <blockquote class="quote reveal"><p>“Feisal transformed our static website into a dynamic, CMS-backed platform. The attention to detail and performance optimizations were outstanding.”</p><cite class="mono">— A. Whitfield, Harrow &amp; Finch</cite></blockquote>
-    <blockquote class="quote reveal"><p>“The dashboard Feisal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly.”</p><cite class="mono">— R. Okoye, Loomstack</cite></blockquote>
+    <blockquote class="quote reveal"><p>“The dashboard Fei
+sal built replaced our chaotic spreadsheet system. Now, our team can manage inventory effortlessly.”</p><cite class="mono">— R. Okoye, Loomstack</cite></blockquote>
   </div>
 </section>
 
@@ -164,7 +178,8 @@ ith React Hooks</h3></a>
     <div class="field"><label class="mono" for="bk-name">name</label><input type="text" id="bk-name" name="name" required autocomplete="name"></div>
     <div class="field"><label class="mono" for="bk-email">email</label><input type="email" id="bk-email" name="email" required autocomplete="email"></div>
     <div class="field"><label class="mono" for="bk-type">project type</label><select id="bk-type" name="type"><option>Marketing site / portfolio</option><option>Web app / dashboard</option><option>E-commerce store</option><option>Performance &amp; polish work</option><option>Something else</option></select></div>
-    <div class="field"><label class="mono" for="bk-budget">budget range</label><select id="bk-budget" name="budget"><option>Under $500</option><option>$500 — $1,500</option><option>$1,500 — $5,000</option><option>$5,000+</option><option>Not sure yet</option></select></div>
+    <div class="field"><label class="mono" for="bk-budget">budget range</label><select id="bk-budget" name="budget"><option>Under $500</option><option>$500 — $1,500</option><option>$1,500 — $5,000</option><option>$5,000+</
+option><option>Not sure yet</option></select></div>
     <div class="field"><label class="mono" for="bk-date">preferred start date</label><input type="date" id="bk-date" name="date"></div>
     <div class="field"><label class="mono" for="bk-timeline">rough deadline</label><input type="text" id="bk-timeline" name="timeline" placeholder="e.g. mid-November"></div>
     <div class="field field-wide"><label class="mono" for="bk-details">project details
@@ -180,12 +195,16 @@ ith React Hooks</h3></a>
   <p class="reveal contact-sub">My inbox is always open — whether you have a project in mind, a question, or just want to say hi. I’ll do my best to get back to you within one business day.</p>
   <div class="contact-socials reveal" aria-label="Social links">
     <a href="https://github.com/feizalsmitth" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.78 10.8.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.34-3.84-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.44-2.26 1.16-3.06-.12-.29-.5-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.62 1.57.23 2.73.11 3.02.73.8 1.16 1.82 1.16 3.06 0 4.37-2.68 5.34-5.22 5.62.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg></a>
-    <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg></a>
+    <a href="https://www.linkedin.com/in/feizal-onyango-443553373/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg vi
+ewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.2 2.28-2.47 4.7-2.47 5.03 0 5.96 3.15 5.96 7.24V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.16 0-2.49 1.65-2.49 3.39V23H8.5V8.98Z"/></svg></a>
     <a href="https://instagram.com/hsssnnnnd._" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 troke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></a>
     <a href="mailto:feizalsmitth@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a>
   </div>
   <a href="mailto:feizalsmitth@icloud.com" class="btn btn-outline mono reveal">say hello</a>
+  <div class="contact-copy reveal">
+    <button class="copy-btn mono" id="copyEmail" aria-label="Copy email address">feizalsmitth@icloud.com <span class="copy-icon" aria-hidden="true">⧉</span></button>
+  </div>
 </section>
 
 </main>
