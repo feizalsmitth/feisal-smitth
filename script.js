@@ -35,23 +35,98 @@ if ("IntersectionObserver" in window) {
 // Scroll-spy for nav highlight
 var sections = ["about","experience","work","blog","contact"].map(function (id) { return document.getElementById(id); }).filter(Boolean);
 var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
+var progressEl = document.getElementById("scrollProgress");
+var backToTop = document.getElementById("backToTop");
 function onScroll() {
   var pos = window.scrollY + window.innerHeight / 3;
   var activeId = "";
   sections.forEach(function (sec) { if (sec.offsetTop <= pos) activeId = sec.id; });
   navAnchors.forEach(function (a) { a.style.color = a.getAttribute("href") === "#" + activeId ? "var(--green)" : ""; });
+  // scroll progress bar
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+  if (progressEl) progressEl.style.width = pct + "%";
+  // back-to-top visibility
+  if (backToTop) backToTop.classList.toggle("show", window.scrollY > 600);
 }
 var ticking = false;
 window.addEventListener("scroll", function () {
   if (!ticking) { requestAnimationFrame(function () { onScroll(); ticking = false; }); ticking = true; }
 }, { passive: true });
 onScroll();
+if (backToTop) backToTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+
+// Typing effect in hero
+var typedEl = document.getElementById("typed");
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (typedEl && !reduceMotion) {
+  var phrases = ["websites that feel effortless.", "accessible interfaces.", "fast, pixel-perfect UIs.", "things for the web."];
+  var pi = 0, ci = 0, deleting = false;
+  (function type() {
+    var phrase = phrases[pi];
+    typedEl.textContent = phrase.slice(0, ci);
+    var delay;
+    if (!deleting) {
+      ci++;
+      delay = 60;
+      if (ci > phrase.length) { deleting = true; delay = 2200; }
+    } else {
+      ci--;
+      delay = 28;
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; delay = 500; }
+    }
+    setTimeout(type, delay);
+  })();
+} else if (typedEl) {
+  typedEl.textContent = "things for the web.";
+}
+
+// 3D tilt on cards (desktop pointers only)
+var finePointer = window.matchMedia("(pointer: fine)").matches;
+if (finePointer && !reduceMotion) {
+  document.querySelectorAll(".project, .quote, .photo-frame").forEach(function (el) {
+    el.classList.add("tilt");
+    el.addEventListener("mousemove", function (e) {
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = "perspective(700px) rotateX(" + (-y * 6).toFixed(2) + "deg) rotateY(" + (x * 6).toFixed(2) + "deg) translateY(-4px)";
+    });
+    el.addEventListener("mouseleave", function () { el.style.transform = ""; });
+  });
+
+  // Magnetic buttons
+  document.querySelectorAll(".btn, .nav-cta, .theme-toggle").forEach(function (el) {
+    el.addEventListener("mousemove", function (e) {
+      var r = el.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      el.style.transform = "translate(" + (x * 0.18).toFixed(1) + "px," + (y * 0.18).toFixed(1) + "px)";
+    });
+    el.addEventListener("mouseleave", function () { el.style.transform = ""; });
+  });
+}
+
+// Easter egg: type "feisal" anywhere
+var buffer = "";
+document.addEventListener("keydown", function (e) {
+  if (e.key && e.key.length === 1) {
+    buffer = (buffer + e.key.toLowerCase()).slice(-6);
+    if (buffer === "feisal") {
+      document.body.classList.add("party");
+      setTimeout(function () { document.body.classList.remove("party"); }, 8000);
+      buffer = "";
+    }
+  }
+});
 
 // Booking form via Formspree
 var bookingForm = document.getElementById("bookingForm");
 var bookingStatus = document.getElementById("bookingStatus");
 bookingForm.addEventListener("submit", async function (e) {
   e.preventDefault();
+  var btn = bookingForm.querySelector("button[type='submit']");
+  if (btn) { btn.disabled = true; btn.textContent = "sending…"; }
   bookingStatus.textContent = "sending your request…";
   try {
     var res = await fetch(bookingForm.action, { method: "POST", body: new FormData(bookingForm), headers: { Accept: "application/json" } });
@@ -64,6 +139,7 @@ bookingForm.addEventListener("submit", async function (e) {
   } catch (err) {
     bookingStatus.textContent = "⚠ network error — please email me directly.";
   }
+  if (btn) { btn.disabled = false; btn.textContent = "send booking request →"; }
 });
 
 // Footer year

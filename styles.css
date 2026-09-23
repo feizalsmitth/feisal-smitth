@@ -32,7 +32,8 @@ img{max-width:100%;display:block}
 
 /* section headers */
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:44px;white-space:nowrap}
-.section-head::after{content:"";position:relative;top:-6px;display:block;height:1px;width:100%;background:var(--navy-lightest);min-width:60px}
+.section-head::after{
+content:"";position:relative;top:-6px;display:block;height:1px;width:100%;background:var(--navy-lightest);min-width:60px}
 .section-head .n{color:var(--green);font-size:clamp(.9rem,2vw,1.1rem);font-weight:500}
 .section-head h2{font-size:clamp(1.4rem,3.5vw,2rem);color:var(--slate-lightest)}
 
@@ -62,7 +63,8 @@ img{max-width:100%;display:block}
 .btn-big{width:100%;margin-top:8px}
 
 /* social rail (fixed left side, brittany-style) */
-.social-rail{position:fixed;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 20px 24px;z-index:90}
+.social-
+rail{position:fixed;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 20px 24px;z-index:90}
 .social-rail a{color:var(--slate-light);transition:color .2s ease,transform .2s ease}
 .social-rail a:hover{color:var(--green);transform:translateY(-4px)}
 .social-rail svg{width:20px;height:20px}
@@ -92,7 +94,8 @@ img{max-width:100%;display:block}
 
 /* experience */
 .timeline-item{padding:4px 0 40px;border-left:2px solid var(--navy-lightest);margin-left:4px;padding-left:28px;position:relative}
-.timeline-item::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--navy-lightest);box-shadow:0 0 0 4px var(--navy)}
+.timeline-item::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background:v
+ar(--navy-lightest);box-shadow:0 0 0 4px var(--navy)}
 .timeline-item .where{font-size:.9rem;font-weight:500}
 .timeline-item .range{font-size:.8rem;color:var(--slate);margin:6px 0 14px}
 .timeline-item p{margin:0 0 16px;font-size:.95rem}
@@ -128,7 +131,8 @@ img{max-width:100%;display:block}
 
 /* booking */
 .booking-intro{max-width:60ch;margin:-16px 0 36px;font-size:.98rem}
-.booking-form{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px}
+.booking-form{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:8
+60px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field-wide{grid-column:1/-1}
 .field label{font-size:.8rem;color:var(--slate-light)}
@@ -166,6 +170,7 @@ img{max-width:100%;display:block}
   .nav-links.open{display:flex}
   .nav-burger{display:block}
 }
+
 @media (max-width:640px){
   .booking-form{grid-template-columns:1fr}
   .skills-list{grid-template-columns:1fr}
@@ -173,3 +178,24 @@ img{max-width:100%;display:block}
   .container{padding:0 22px}
   .section{padding-left:0;padding-right:0}
 }
+
+/* ---- interactivity extras ---- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.cursor{color:var(--green);animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),var(--slate-lightest));z-index:200;transition:width .05s linear}
+.back-to-top{position:fixed;bottom:26px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid var(--green);background:var(--nav-bg);backdrop-filter:blur(8px);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s ease,transform .3s ease,background .2s ease;z-index:95}
+.back-to-top.show{opacity:1;transform:none;pointer-events:auto}
+.back-to-top:hover{background:var(--green-tint);transform:translateY(-4px)}
+.back-to-top svg{width:20px;height:20px}
+@media (max-width:640px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px}}
+
+/* 3D tilt + magnetic handled in JS; smooth transform hints */
+.project,.quote,.photo-frame,.writing-item{will-change:transform}
+.project.tilt,.quote.tilt,.photo-frame.tilt{transform-style:preserve-3d;transition:transform .15s ease}
+
+/* easter egg */
+body.party .nav,body.party .social-rail a,body.party .project,body.party .quote,body.party .btn{animation:hue 2.5s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+body.party h1,body.party h2,body.party h3{animation:wob 1.2s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(1.5deg)}75%{transform:rotate(-1.5deg)}}
