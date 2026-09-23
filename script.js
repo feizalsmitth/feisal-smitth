@@ -9,6 +9,18 @@ navLinks.addEventListener("click", function (e) {
   if (e.target.tagName === "A") { navLinks.classList.remove("open"); navBurger.setAttribute("aria-expanded", "false"); }
 });
 
+// Theme toggle (dark default, light optional, saved in localStorage)
+var themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", function () {
+  var root = document.documentElement;
+  root.classList.add("theme-transition");
+  root.classList.toggle("light");
+  try {
+    localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
+  } catch (e) {}
+  setTimeout(function () { root.classList.remove("theme-transition"); }, 350);
+});
+
 // Reveal on scroll
 var revealEls = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
