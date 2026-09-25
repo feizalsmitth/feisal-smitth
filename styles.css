@@ -64,9 +64,7 @@ content:"";position:relative;top:-6px;display:block;height:1px;width:100%;backgr
 .btn-big{width:100%;margin-top:8px}
 
 /* social rail (fixed left side, brittany-style) */
-.social
--
-rail{position:fixed;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 20px 24px;z-index:90}
+.social-rail{position:fixed;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 20px 24px;z-index:90}
 .social-rail a{color:var(--slate-light);transition:color .2s ease,transform .2s ease}
 .social-rail a:hover{color:var(--green);transform:translateY(-4px)}
 .social-rail svg{width:20px;height:20px}
@@ -96,9 +94,7 @@ rail{position:fixed;bottom:0;left:0;display:flex;flex-direction:column;align-ite
 
 /* experience */
 .timeline-item{padding:4px 0 40px;border-left:2px solid var(--navy-lightest);margin-left:4px;padding-left:28px;position:relative}
-.timeline-item::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background
-:v
-ar(--navy-lightest);box-shadow:0 0 0 4px var(--navy)}
+.timeline-item::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--navy-lightest);box-shadow:0 0 0 4px var(--navy)}
 .timeline-item .where{font-size:.9rem;font-weight:500}
 .timeline-item .range{font-size:.8rem;color:var(--slate);margin:6px 0 14px}
 .timeline-item p{margin:0 0 16px;font-size:.95rem}
@@ -134,9 +130,7 @@ ar(--navy-lightest);box-shadow:0 0 0 4px var(--navy)}
 
 /* booking */
 .booking-intro{max-width:60ch;margin:-16px 0 36px;font-size:.98rem}
-.booking-form{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-widt
-h:8
-60px}
+.booking-form{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field-wide{grid-column:1/-1}
 .field label{font-size:.8rem;color:var(--slate-light)}
@@ -229,3 +223,26 @@ body.party h1,body.party h2,body.party h3{animation:wob 1.2s ease-in-out infinit
 .toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--navy-light);border:1px solid var(--green);color:var(--green);border-radius:6px;padding:12px 22px;font-size:.8rem;font-family:var(--font-mono);opacity:0;transition:all .3s ease;z-index:300;pointer-events:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion: reduce){.pulse-dot::after{animation:none}.ripple-ink{display:none}.project::before,.quote::before{display:none}}
+
+/* ---- round 3: command palette, cursor glow, confetti ---- */
+.palette{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding-top:14vh}
+.palette[hidden]{display:none}
+.palette-backdrop{position:absolute;inset:0;background:rgba(2,6,23,.62);backdrop-filter:blur(4px)}
+.palette-panel{position:relative;width:min(560px,92vw);background:var(--navy);border:1px solid var(--navy-lightest);border-radius:10px;box-shadow:0 24px 60px rgba(0,0,0,.5);overflow:hidden}
+.palette-input{width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid var(--navy-lightest);padding:16px 18px;color:var(--white);font-size:1rem;outline:none}
+.palette-input::placeholder{color:var(--slate)}
+.palette-list{list-style:none;margin:0;padding:6px;max-height:320px;overflow:auto}
+.palette-list li{padding:11px 12px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;color:var(--slate-light)}
+.palette-list li .palette-tag{color:var(--slate);font-size:.72rem}
+.palette-list li.selected{background:rgba(100,255,218,.08);color:var(--green)}
+.palette-hint{margin:0;padding:10px 14px;border-top:1px solid var(--navy-lightest);color:var(--slate);font-size:.72rem}
+.palette-open{background:transparent;border:1px solid var(--navy-lightest);color:var(--slate-light);border-radius:6px;padding:7px 10px;font-size:.72rem;cursor:pointer;transition:all .2s ease}
+.palette-open:hover{color:var(--green);border-color:var(--green)}
+.light .palette-backdrop{background:rgba(15,23,42,.4)}
+.light .palette-panel{background:var(--white)}
+.light .palette-input{color:var(--navy)}
+.cursor-glow{position:fixed;top:0;left:0;width:260px;height:260px;border-radius:50%;pointer-events:none;z-index:1;opacity:0;background:radial-gradient(circle,rgba(100,255,218,.08) 0%,transparent 65%);transition:opacity .5s ease}
+.cursor-glow.on{opacity:1}
+.confetti-host{position:fixed;inset:0;pointer-events:none;z-index:300;overflow:hidden}
+.confetti-host span{position:absolute;top:-16px;width:9px;height:14px;opacity:.9;border-radius:2px;animation:confetti-fall linear forwards}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(105vh) translateX(var(--drift)) rotate(720deg);opacity:.15}}
