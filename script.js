@@ -41,8 +41,7 @@ function onScroll() {
   var pos = window.scrollY + window.innerHeight / 3;
   var activeId = "";
   sections.forEach(function (sec) { if (sec.offsetTop <= pos) activeId = sec.id; });
-  navAnchors.forEach(function (a) { a
-.style.color = a.getAttribute("href") === "#" + activeId ? "var(--green)" : ""; });
+  navAnchors.forEach(function (a) { a.style.color = a.getAttribute("href") === "#" + activeId ? "var(--green)" : ""; });
   // scroll progress bar
   var max = document.documentElement.scrollHeight - window.innerHeight;
   var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
@@ -90,8 +89,7 @@ if (finePointer && !reduceMotion) {
     el.addEventListener("mousemove", function (e) {
       var r = el.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.he
-ight - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
       el.style.transform = "perspective(700px) rotateX(" + (-y * 6).toFixed(2) + "deg) rotateY(" + (x * 6).toFixed(2) + "deg) translateY(-4px)";
     });
     el.addEventListener("mouseleave", function () { el.style.transform = ""; });
@@ -139,8 +137,7 @@ bookingForm.addEventListener("submit", async function (e) {
       bookingStatus.textContent = "⚠ something went wrong — please email me directly.";
     }
   } catch (err) {
-    bookingStatus.textContent = "⚠ net
-work error — please email me directly.";
+    bookingStatus.textContent = "⚠ network error — please email me directly.";
   }
   if (btn) { btn.disabled = false; btn.textContent = "send booking request →"; }
 });
@@ -271,4 +268,168 @@ if (!reduceMotion2 && "IntersectionObserver" in window) {
     });
   }, { threshold: 0.5 });
   document.querySelectorAll(".section-head").forEach(function (el) { scrambleIO.observe(el); });
+}
+
+
+// ---- interactivity round 3: command palette, cursor glow, confetti ----
+var reduceMotion3 = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Command palette (Ctrl/Cmd+K)
+(function () {
+  var palette = document.createElement("div");
+  palette.className = "palette";
+  palette.setAttribute("role", "dialog");
+  palette.setAttribute("aria-modal", "true");
+  palette.setAttribute("aria-label", "Command palette");
+  palette.hidden = true;
+  palette.innerHTML =
+    '<div class="palette-backdrop" data-close="1"></div>' +
+    '<div class="palette-panel">' +
+    '<input class="palette-input mono" type="text" placeholder="type a command or search…" aria-label="Search commands">' +
+    '<ul class="palette-list" role="listbox"></ul>' +
+    '<p class="palette-hint mono">↑↓ navigate · enter run · esc close</p>' +
+    "</div>";
+  document.body.appendChild(palette);
+  var pInput = palette.querySelector(".palette-input");
+  var pList = palette.querySelector(".palette-list");
+  var selected = 0;
+
+  function go(sel) {
+    var t = document.querySelector(sel);
+    if (t) t.scrollIntoView({ behavior: reduceMotion3 ? "auto" : "smooth" });
+  }
+  function copyEmailAction() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText("feizalsmitth@icloud.com").then(function () { showToast("✓ email copied to clipboard"); });
+    } else { showToast("feizalsmitth@icloud.com"); }
+  }
+  var actions = [
+    { label: "go to: about", tag: "section", run: function () { go("#about"); } },
+    { label: "go to: experience", tag: "section", run: function () { go("#experience"); } },
+    { label: "go to: work", tag: "section", run: function () { go("#work"); } },
+    { label: "go to: kind words", tag: "section", run: function () { go("#testimonials"); } },
+    { label: "go to: writing", tag: "section", run: function () { go("#blog"); } },
+    { label: "book a project", tag: "action", run: function () { go("#booking"); } },
+    { label: "get in touch", tag: "action", run: function () { go("#contact"); } },
+    { label: "toggle theme", tag: "action", run: function () { themeToggle.click(); } },
+    { label: "copy my email", tag: "action", run: copyEmailAction },
+    { label: "open github", tag: "link", run: function () { window.open("https://github.com/feizalsmitth", "_blank", "noopener"); } },
+    { label: "open linkedin", tag: "link", run: function () { window.open("https://www.linkedin.com/in/feizal-onyango-443553373/", "_blank", "noopener"); } },
+    { label: "view résumé", tag: "link", run: function () { window.open("assets/Feisal-Onyango-CV.pdf", "_blank", "noopener"); } },
+    { label: "back to top", tag: "action", run: function () { window.scrollTo({ top: 0, behavior: reduceMotion3 ? "auto" : "smooth" }); } }
+  ];
+  var filtered = actions.slice();
+
+  function render() {
+    pList.innerHTML = "";
+    filtered.forEach(function (a, i) {
+      var li = document.createElement("li");
+      li.setAttribute("role", "option");
+      li.innerHTML = "<span>" + a.label + '</span><span class="palette-tag mono">' + a.tag + "</span>";
+      if (i === selected) li.classList.add("selected");
+      li.addEventListener("click", function () { run(i); });
+      li.addEventListener("mousemove", function () { if (selected !== i) { selected = i; render(); } });
+      pList.appendChild(li);
+    });
+  }
+  function run(i) {
+    var a = filtered[i];
+    close();
+    if (a) a.run();
+  }
+  function open() {
+    palette.hidden = false;
+    pInput.value = "";
+    filtered = actions.slice();
+    selected = 0;
+    render();
+    setTimeout(function () { pInput.focus(); }, 20);
+  }
+  function close() {
+    palette.hidden = true;
+    pInput.value = "";
+  }
+  pInput.addEventListener("input", function () {
+    var q = pInput.value.trim().toLowerCase();
+    filtered = actions.filter(function (a) { return a.label.toLowerCase().indexOf(q) !== -1 || a.tag.indexOf(q) !== -1; });
+    selected = 0;
+    render();
+  });
+  palette.addEventListener("click", function (e) {
+    var tgt = e.target; if (tgt && tgt.closest && tgt.closest("[data-close]")) close();
+  });
+  pInput.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowDown") { e.preventDefault(); selected = Math.min(selected + 1, filtered.length - 1); render(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); selected = Math.max(selected - 1, 0); render(); }
+    else if (e.key === "Enter") { e.preventDefault(); run(selected); }
+    else if (e.key === "Escape") { close(); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      if (palette.hidden) open(); else close();
+    } else if (e.key === "Escape" && !palette.hidden) {
+      close();
+    }
+  });
+
+  // Visible trigger button in the nav
+  var navEnd = document.querySelector(".nav-end");
+  if (navEnd) {
+    var kBtn = document.createElement("button");
+    kBtn.className = "palette-open mono";
+    kBtn.textContent = "⌘K";
+    kBtn.setAttribute("aria-label", "Open command palette");
+    kBtn.addEventListener("click", open);
+    navEnd.insertBefore(kBtn, navEnd.firstChild);
+  }
+
+  // First-visit hint
+  try {
+    if (!localStorage.getItem("paletteHintSeen")) {
+      setTimeout(function () {
+        if (palette.hidden) showToast("tip: hit ctrl + k (or ⌘K) for quick nav");
+        try { localStorage.setItem("paletteHintSeen", "1"); } catch (err) {}
+      }, 6000);
+    }
+  } catch (err) {}
+})();
+
+// Cursor glow trail (fine pointers, motion-safe only)
+if (typeof finePointer !== "undefined" && finePointer && !reduceMotion3) {
+  var glow = document.createElement("div");
+  glow.className = "cursor-glow";
+  glow.setAttribute("aria-hidden", "true");
+  document.body.appendChild(glow);
+  var gx = 0, gy = 0, gtx = 0, gty = 0, glowOn = false;
+  document.addEventListener("mousemove", function (e) {
+    gtx = e.clientX; gty = e.clientY;
+    if (!glowOn) { glowOn = true; glow.classList.add("on"); (function follow() { gx += (gtx - gx) * 0.14; gy += (gty - gy) * 0.14; glow.style.transform = "translate(" + (gx - 130) + "px," + (gy - 130) + "px)"; requestAnimationFrame(follow); })(); }
+  });
+}
+
+// Confetti burst for the "feisal" party easter egg
+function confettiBurst() {
+  if (reduceMotion3) return;
+  var colors = ["#64ffda", "#ffd166", "#ef476f", "#7bdcb5", "#c792ea"];
+  var host = document.createElement("div");
+  host.className = "confetti-host";
+  host.setAttribute("aria-hidden", "true");
+  document.body.appendChild(host);
+  for (var i = 0; i < 90; i++) {
+    var p = document.createElement("span");
+    p.style.left = (Math.random() * 100) + "vw";
+    p.style.background = colors[i % colors.length];
+    p.style.animationDelay = (Math.random() * 0.5) + "s";
+    p.style.animationDuration = (1.8 + Math.random() * 1.8) + "s";
+    p.style.setProperty("--drift", (Math.random() * 160 - 80) + "px");
+    host.appendChild(p);
+  }
+  setTimeout(function () { host.remove(); }, 4600);
+}
+if ("MutationObserver" in window) {
+  var partyObserver = new MutationObserver(function () {
+    if (document.body.classList.contains("party")) confettiBurst();
+  });
+  partyObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 }
