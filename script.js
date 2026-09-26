@@ -84,7 +84,7 @@ if (typedEl && !reduceMotion) {
 // 3D tilt on cards (desktop pointers only)
 var finePointer = window.matchMedia("(pointer: fine)").matches;
 if (finePointer && !reduceMotion) {
-  document.querySelectorAll(".project, .quote, .photo-frame").forEach(function (el) {
+  document.querySelectorAll(".project, .quote").forEach(function (el) {
     el.classList.add("tilt");
     el.addEventListener("mousemove", function (e) {
       var r = el.getBoundingClientRect();

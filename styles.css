@@ -79,18 +79,12 @@ content:"";position:relative;top:-6px;display:block;height:1px;width:100%;backgr
 .hero-btns{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap}
 
 /* about */
-.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:center}
+.about-grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:720px}
 .about-grid p{margin:0 0 20px}
 .about-grid strong{color:var(--slate-lightest)}
 .skills-title{margin:28px 0 12px;font-size:.9rem}
 .skills-list{list-style:none;display:grid;grid-template-columns:repeat(2,max-content);gap:8px 24px;padding:0;margin:0;font-size:.85rem}
 .skills-list li::before{content:"▸";color:var(--green);margin-right:10px}
-.photo-frame{position:relative;max-width:300px;margin:0 auto;border-radius:6px;transition:transform .3s ease}
-.photo-frame::after{content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:6px;transform:translate(14px,14px);z-index:-1;transition:transform .3s ease}
-.photo-frame:hover{transform:translate(-6px,-6px)}
-.photo-frame:hover::after{transform:translate(20px,20px)}
-.photo-frame img{border-radius:6px;filter:grayscale(.5) contrast(1.05);aspect-ratio:1;object-fit:cover}
-.photo-frame:hover img{filter:none}
 
 /* experience */
 .timeline-item{padding:4px 0 40px;border-left:2px solid var(--navy-lightest);margin-left:4px;padding-left:28px;position:relative}
@@ -190,8 +184,8 @@ k}
 @media (max-width:640px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px}}
 
 /* 3D tilt + magnetic handled in JS; smooth transform hints */
-.project,.quote,.photo-frame,.writing-item{will-change:transform}
-.project.tilt,.quote.tilt,.photo-frame.tilt{transform-style:preserve-3d;transition:transform .15s ease}
+.project,.quote,.writing-item{will-change:transform}
+.project.tilt,.quote.tilt{transform-style:preserve-3d;transition:transform .15s ease}
 
 /* easter egg */
 body.party .nav,body.party .social-rail a,body.party .project,body.party .quote,body.party .btn{animation:hue 2.5s linear infinite}
